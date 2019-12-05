@@ -30,7 +30,7 @@ https://react-component.github.io/footer/
 
 ## Install
 
-[![rc-footer](https://nodei.co/npm/rc-footer.png)](https://npmjs.org/package/rc-footer)
+[![rc-footer](https://nodei.co/npm/rc-footer.png)](https://npmjs.org/package/rc-footer) [![Greenkeeper badge](https://badges.greenkeeper.io/ant-design/HiTu.svg)](https://greenkeeper.io/)
 
 ## Usage
 
