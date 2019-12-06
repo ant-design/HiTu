@@ -1,4 +1,6 @@
 .storybook
+output/
+svgs/
 *.iml
 *.log
 .idea/

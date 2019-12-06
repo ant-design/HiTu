@@ -6,6 +6,8 @@ export interface Info {
   rotate?: number;
   scaleX?: number;
   scaleY?: number;
+  originX?: number;
+  originY?: number;
   opacity?: number;
 }
 

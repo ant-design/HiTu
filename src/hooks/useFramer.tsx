@@ -4,20 +4,40 @@ import { fillInfo, getTransitionValue } from '../utils/svgUtil';
 
 type ShapeInfo = Info & { frames?: FrameInfo[] };
 
+export interface FramerInfo {
+  play: boolean;
+  frame: number;
+}
+
 export default function useFramer(
   totalFrames: number,
-  frameRate: number = 16,
+  config?: {
+    defaultPlay?: boolean;
+    frameRate?: number;
+    onPlay?: (play: boolean) => void;
+    onFrame?: (frame: number) => void;
+  },
 ): [
   number,
-  (start: boolean) => void,
+  (start?: boolean) => void,
   (shapeInfo: ShapeInfo) => Required<Info>,
+  () => FramerInfo,
 ] {
+  const { defaultPlay, frameRate = 16, onPlay, onFrame } = config || {};
+
+  const [_, forceUpdate] = React.useState<object>({});
   const [frame, setFrame] = React.useState(0);
-  const frameIdRef = React.useRef(null);
+  const frameIdRef = React.useRef<number | null>(null);
   const triggerRef = React.useRef(false);
   const timestampRef = React.useRef(Date.now());
   const timesDiffRef = React.useRef(0);
   const initRef = React.useRef(false);
+
+  React.useEffect(() => {
+    if (onFrame) {
+      onFrame(frame);
+    }
+  }, [frame]);
 
   function cancelMotion() {
     triggerRef.current = false;
@@ -25,12 +45,12 @@ export default function useFramer(
   }
 
   function nextFrame() {
-    if (!totalFrames) {
+    if (!totalFrames || !triggerRef.current) {
       cancelMotion();
       return;
     }
 
-    window.requestAnimationFrame(() => {
+    frameIdRef.current = window.requestAnimationFrame(() => {
       const now = Date.now();
       const timestampDiff = now - timestampRef.current + timesDiffRef.current;
       const frameDiff = Math.floor(timestampDiff / frameRate);
@@ -42,19 +62,27 @@ export default function useFramer(
     });
   }
 
-  function triggerMotion(start: boolean) {
-    if (triggerRef.current === start) {
+  function triggerMotion(start?: boolean) {
+    const mergedStart = start !== undefined ? start : !triggerRef.current;
+
+    if (triggerRef.current === mergedStart) {
       return;
     }
 
-    triggerRef.current = start;
-    if (start) {
+    triggerRef.current = mergedStart;
+    if (mergedStart) {
       timestampRef.current = Date.now();
       timesDiffRef.current = 0;
       nextFrame();
     } else {
       cancelMotion();
     }
+
+    if (onPlay) {
+      onPlay(mergedStart);
+    }
+
+    forceUpdate({});
   }
 
   function getFrameInfo({ frames, ...rest }: ShapeInfo): Required<Info> {
@@ -79,6 +107,8 @@ export default function useFramer(
           rotate: getTransitionValue(startInfo.rotate, endInfo.rotate, ptg),
           scaleX: getTransitionValue(startInfo.scaleX, endInfo.scaleX, ptg),
           scaleY: getTransitionValue(startInfo.scaleY, endInfo.scaleY, ptg),
+          originX: getTransitionValue(startInfo.originX, endInfo.originX, ptg),
+          originY: getTransitionValue(startInfo.originY, endInfo.originY, ptg),
           opacity: getTransitionValue(startInfo.opacity, endInfo.opacity, ptg),
         };
       }
@@ -87,8 +117,15 @@ export default function useFramer(
     return fillInfo(frames[frames.length - 1]);
   }
 
+  function getFramerInfo() {
+    return {
+      play: triggerRef.current,
+      frame,
+    };
+  }
+
   // Default to start motion
-  if (!initRef.current) {
+  if (!initRef.current && defaultPlay !== false) {
     triggerMotion(true);
     initRef.current = true;
   }
@@ -96,5 +133,5 @@ export default function useFramer(
   // Clean up
   React.useEffect(() => cancelMotion, []);
 
-  return [frame, triggerMotion, getFrameInfo];
+  return [frame, triggerMotion, getFrameInfo, getFramerInfo];
 }

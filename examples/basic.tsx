@@ -1,25 +1,53 @@
 import * as React from 'react';
 import HiTu from '../src';
-import people from './svg/people1';
+import * as allImages from '../output';
+
+const names = Object.keys(allImages).filter(name => name.includes('人物'));
+function randomName() {
+  const index = Math.floor(Math.random() * names.length);
+  return names[index];
+}
 
 export default () => {
+  const [personName, setPersonName] = React.useState(randomName());
+  const Person = (allImages as any)[personName];
+
   return (
     <div style={{ height: 'calc(100vh - 20px)' }}>
+      <button
+        type="button"
+        style={{
+          position: 'absolute',
+          left: '50%',
+          top: 0,
+          transform: 'translateX(-50%)',
+        }}
+        onClick={() => {
+          setPersonName(randomName());
+        }}
+      >
+        Random
+      </button>
       <HiTu
         debug
-        width={800}
-        height={800}
+        width={2000}
+        height={1000}
         style={{ height: '100%', width: '100%' }}
-        frames={60}
+        frames={200}
         shapes={[
           {
             type: 'shape',
-            source: people,
-            x: 100,
-            rotate: 45,
+            // scaleX: .1,
+            // scaleY: .1,
+            // x: 500,
+            // y: 250,
+            source: Person,
             frames: [
-              { frame: 0, x: 0 },
-              { frame: 60, x: 100 },
+              { frame: 0, x: 0, y: 500, scaleX: -1 },
+              { frame: 90, x: 500, y: 500, scaleX: -1 },
+              { frame: 100, x: 500, y: 500 },
+              { frame: 190, x: 0, y: 500 },
+              { frame: 200, x: 0, y: 500, scaleX: -1 },
             ],
           },
         ]}
