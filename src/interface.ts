@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+export const TYPE_SHAPE = 'shape';
+
 export interface Info {
   x?: number;
   y?: number;
@@ -13,10 +15,11 @@ export interface Info {
 
 export interface FrameInfo extends Info {
   frame: number;
+  cubic?: [number, number, number, number];
 }
 
 export interface Shape extends Info {
-  type: 'shape';
+  type: typeof TYPE_SHAPE;
   source: React.ComponentType<any>;
   frames?: FrameInfo[];
 }

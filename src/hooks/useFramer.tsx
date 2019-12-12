@@ -96,20 +96,54 @@ export default function useFramer(
 
       // Getting motion
       if (startFrame.frame <= frame && frame < endFrame.frame) {
-        const startInfo = fillInfo(startFrame);
-        const endInfo = fillInfo(endFrame);
+        const startInfo = fillInfo(startFrame, {
+          frames: frames.slice(0, i),
+        });
+        const endInfo = fillInfo(endFrame, { frames: frames.slice(0, i + 1) });
         const ptg =
           (frame - startFrame.frame) / (endFrame.frame - startFrame.frame);
 
+        const { cubic } = startFrame;
+
         return {
-          x: getTransitionValue(startInfo.x, endInfo.x, ptg),
-          y: getTransitionValue(startInfo.y, endInfo.y, ptg),
-          rotate: getTransitionValue(startInfo.rotate, endInfo.rotate, ptg),
-          scaleX: getTransitionValue(startInfo.scaleX, endInfo.scaleX, ptg),
-          scaleY: getTransitionValue(startInfo.scaleY, endInfo.scaleY, ptg),
-          originX: getTransitionValue(startInfo.originX, endInfo.originX, ptg),
-          originY: getTransitionValue(startInfo.originY, endInfo.originY, ptg),
-          opacity: getTransitionValue(startInfo.opacity, endInfo.opacity, ptg),
+          x: getTransitionValue(startInfo.x, endInfo.x, ptg, cubic),
+          y: getTransitionValue(startInfo.y, endInfo.y, ptg, cubic),
+          rotate: getTransitionValue(
+            startInfo.rotate,
+            endInfo.rotate,
+            ptg,
+            cubic,
+          ),
+          scaleX: getTransitionValue(
+            startInfo.scaleX,
+            endInfo.scaleX,
+            ptg,
+            cubic,
+          ),
+          scaleY: getTransitionValue(
+            startInfo.scaleY,
+            endInfo.scaleY,
+            ptg,
+            cubic,
+          ),
+          originX: getTransitionValue(
+            startInfo.originX,
+            endInfo.originX,
+            ptg,
+            cubic,
+          ),
+          originY: getTransitionValue(
+            startInfo.originY,
+            endInfo.originY,
+            ptg,
+            cubic,
+          ),
+          opacity: getTransitionValue(
+            startInfo.opacity,
+            endInfo.opacity,
+            ptg,
+            cubic,
+          ),
         };
       }
     }
