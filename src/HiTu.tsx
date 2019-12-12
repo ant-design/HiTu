@@ -2,7 +2,13 @@ import * as React from 'react';
 import { Shape, TYPE_SHAPE } from './interface';
 import { getTransform } from './utils/svgUtil';
 import useFramer, { FramerInfo } from './hooks/useFramer';
-import { EASE, CUBIC_NUMBER } from './utils/cubicUtil';
+import {
+  EASE,
+  CUBIC_NUMBER,
+  EASE_IN,
+  EASE_IN_OUT,
+  EASE_OUT,
+} from './utils/cubicUtil';
 
 export interface HiTuRefObject {
   triggerMotion: (play?: boolean) => void;
@@ -114,10 +120,16 @@ const HiTu = React.forwardRef(InternalHiTu);
 export type HiTu = typeof HiTu & {
   TYPE_SHAPE: typeof TYPE_SHAPE;
   CUBIC_EASE: CUBIC_NUMBER;
+  CUBIC_EASE_IN: CUBIC_NUMBER;
+  CUBIC_EASE_IN_OUT: CUBIC_NUMBER;
+  CUBIC_EASE_OUT: CUBIC_NUMBER;
 };
 
 const ExportHiTu = HiTu as HiTu;
 ExportHiTu.TYPE_SHAPE = TYPE_SHAPE;
 ExportHiTu.CUBIC_EASE = EASE;
+ExportHiTu.CUBIC_EASE_IN = EASE_IN;
+ExportHiTu.CUBIC_EASE_IN_OUT = EASE_IN_OUT;
+ExportHiTu.CUBIC_EASE_OUT = EASE_OUT;
 
 export default ExportHiTu;

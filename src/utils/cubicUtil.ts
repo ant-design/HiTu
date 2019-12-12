@@ -1,6 +1,9 @@
 export type CUBIC_NUMBER = [number, number, number, number];
 
 export const EASE: CUBIC_NUMBER = [0.25, 0.1, 0.25, 1.0];
+export const EASE_IN: CUBIC_NUMBER = [0.42, 0.0, 1.0, 1.0];
+export const EASE_IN_OUT: CUBIC_NUMBER = [0.42, 0.0, 0.58, 1.0];
+export const EASE_OUT: CUBIC_NUMBER = [0.0, 0.0, 0.58, 1.0];
 
 export default class CubicBezier {
   x1: number;
