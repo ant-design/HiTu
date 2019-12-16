@@ -44,9 +44,9 @@ export default () => {
             // y: 250,
             source: Person,
             frames: [
-              { frame: 0, x: 0, y: 500, scaleX: -1, cubic: HiTu.CUBIC_EASE },
+              { frame: 0, x: 0, y: 500, scaleX: -1, cubic: HiTu.CUBIC_EASE_IN },
               { frame: 90, x: 1000 },
-              { frame: 100, x: 1000, scaleX: 1, cubic: HiTu.CUBIC_EASE },
+              { frame: 100, x: 1000, scaleX: 1, cubic: HiTu.CUBIC_EASE_OUT },
               { frame: 190, x: 0 },
               { frame: 200, x: 0, scaleX: -1 },
             ],

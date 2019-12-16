@@ -24,8 +24,9 @@ export default function useFramer(
   (shapeInfo: ShapeInfo) => Required<Info>,
   () => FramerInfo,
 ] {
-  const { defaultPlay, frameRate = 60, onPlay, onFrame, loop } = config || {};
-  const frameDuration = Math.floor(1000 / frameRate);
+  // const { defaultPlay, frameRate = 60, onPlay, onFrame, loop } = config || {};
+  const configRef = React.useRef(config || {});
+  configRef.current = config || {};
 
   const [_, forceUpdate] = React.useState<object>({});
   const frameRef = React.useRef(0);
@@ -35,9 +36,10 @@ export default function useFramer(
   const timesDiffRef = React.useRef(0);
   const initRef = React.useRef(false);
 
-  // loop
-  const loopRef = React.useRef(loop);
-  loopRef.current = loop;
+  // Frame
+  function getFrameDuration() {
+    return Math.floor(1000 / (configRef.current.frameRate || 60));
+  }
 
   let triggerMotion: (start?: boolean) => void;
 
@@ -58,13 +60,15 @@ export default function useFramer(
     }
 
     frameIdRef.current = window.requestAnimationFrame(() => {
+      const frameDuration = getFrameDuration();
+
       const now = Date.now();
       const timestampDiff = now - timestampRef.current + timesDiffRef.current;
       const frameDiff = Math.floor(timestampDiff / frameDuration);
       let targetFrame = frameRef.current + frameDiff;
 
       if (targetFrame >= totalFrames) {
-        if (loopRef.current !== false || manual) {
+        if (configRef.current.loop !== false || manual) {
           targetFrame = 0;
         } else {
           targetFrame = totalFrames;
@@ -72,8 +76,8 @@ export default function useFramer(
         }
       }
 
-      if (onFrame) {
-        onFrame(targetFrame);
+      if (configRef.current.onFrame) {
+        configRef.current.onFrame(targetFrame);
       }
 
       setFrame(targetFrame);
@@ -100,8 +104,8 @@ export default function useFramer(
       cancelMotion();
     }
 
-    if (onPlay) {
-      onPlay(mergedStart);
+    if (configRef.current.onPlay) {
+      configRef.current.onPlay(mergedStart);
     }
 
     forceUpdate({});
@@ -187,7 +191,7 @@ export default function useFramer(
   }
 
   // Default to start motion
-  if (!initRef.current && defaultPlay !== false) {
+  if (!initRef.current && configRef.current.defaultPlay !== false) {
     triggerMotion(true);
     initRef.current = true;
   }

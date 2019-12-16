@@ -12,6 +12,18 @@ const AntDesign = () => (
 AntDesign.width = 30;
 AntDesign.height = 30;
 
+const Icon = () => (
+  <svg>
+    <image
+      href="https://gw.alipayobjects.com/zos/basement_prod/c6935869-a270-463a-8303-9273173c189f.svg"
+      height="30"
+      width="30"
+    />
+  </svg>
+);
+Icon.width = 30;
+Icon.height = 30;
+
 export default function Logo() {
   const hituRef = React.useRef<HiTuRefObject>(null);
   const [loop, setLoop] = React.useState(false);
@@ -44,6 +56,24 @@ export default function Logo() {
               {
                 frame: 0,
                 x: 15,
+                y: 15,
+                rotate: 0,
+              },
+              {
+                frame: 60,
+                rotate: 360,
+              },
+            ],
+          },
+          {
+            type: 'shape',
+            source: Icon,
+            x: 55,
+            y: 15,
+            frames: [
+              {
+                frame: 0,
+                x: 55,
                 y: 15,
                 rotate: 0,
               },
