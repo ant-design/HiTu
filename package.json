@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/hitu",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.0",
   "description": "Animation control with Hitu",
   "keywords": [
     "react",
@@ -32,7 +32,7 @@
     "build": "father doc build --storybook",
     "compile": "father build && lessc assets/index.less assets/index.css",
     "gh-pages": "npm run build && father doc deploy",
-    "prepublishOnly": "npm run compile && np --yolo --no-publish && npm run gh-pages",
+    "prepublishOnly": "npm run compile && np --yolo --no-publish",
     "lint": "eslint src/ --ext .ts,.tsx,.jsx,.js,.md",
     "prettier": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "pretty-quick": "pretty-quick",
