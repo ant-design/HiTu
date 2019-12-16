@@ -24,7 +24,8 @@ export default function useFramer(
   (shapeInfo: ShapeInfo) => Required<Info>,
   () => FramerInfo,
 ] {
-  const { defaultPlay, frameRate = 16, onPlay, onFrame, loop } = config || {};
+  const { defaultPlay, frameRate = 60, onPlay, onFrame, loop } = config || {};
+  const frameDuration = Math.floor(1000 / frameRate);
 
   const [_, forceUpdate] = React.useState<object>({});
   const frameRef = React.useRef(0);
@@ -56,7 +57,7 @@ export default function useFramer(
     frameIdRef.current = window.requestAnimationFrame(() => {
       const now = Date.now();
       const timestampDiff = now - timestampRef.current + timesDiffRef.current;
-      const frameDiff = Math.floor(timestampDiff / frameRate);
+      const frameDiff = Math.floor(timestampDiff / frameDuration);
       let targetFrame = frameRef.current + frameDiff;
 
       if (targetFrame >= totalFrames) {
@@ -73,7 +74,7 @@ export default function useFramer(
       }
 
       setFrame(targetFrame);
-      timesDiffRef.current = timestampDiff % frameRate;
+      timesDiffRef.current = timestampDiff % frameDuration;
       timestampRef.current = now;
 
       nextFrame(false);
