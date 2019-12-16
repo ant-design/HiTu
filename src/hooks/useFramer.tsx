@@ -29,12 +29,15 @@ export default function useFramer(
 
   const [_, forceUpdate] = React.useState<object>({});
   const frameRef = React.useRef(0);
-  // const [frame, setFrame] = React.useState(0);
   const frameIdRef = React.useRef<number | null>(null);
   const triggerRef = React.useRef(false);
   const timestampRef = React.useRef(Date.now());
   const timesDiffRef = React.useRef(0);
   const initRef = React.useRef(false);
+
+  // loop
+  const loopRef = React.useRef(loop);
+  loopRef.current = loop;
 
   let triggerMotion: (start?: boolean) => void;
 
@@ -61,7 +64,7 @@ export default function useFramer(
       let targetFrame = frameRef.current + frameDiff;
 
       if (targetFrame >= totalFrames) {
-        if (loop !== false || manual) {
+        if (loopRef.current !== false || manual) {
           targetFrame = 0;
         } else {
           targetFrame = totalFrames;
@@ -171,7 +174,9 @@ export default function useFramer(
       }
     }
 
-    return fillInfo(frames[frames.length - 1]);
+    return fillInfo(frames[frames.length - 1], {
+      frames: frames.slice(0, -1),
+    });
   }
 
   function getFramerInfo() {

@@ -14,23 +14,32 @@ AntDesign.height = 30;
 
 export default function Logo() {
   const hituRef = React.useRef<HiTuRefObject>(null);
-  const [loop, setLoop] = React.useState(true);
+  const [loop, setLoop] = React.useState(false);
 
   return (
-    <div className="home-card-logo">
+    <div
+      className="home-card-logo"
+      onMouseEnter={() => {
+        setLoop(true);
+        hituRef.current?.triggerMotion(true);
+      }}
+      onMouseLeave={() => {
+        setLoop(false);
+      }}
+    >
       <HiTu
         ref={hituRef}
         width={200}
         height={200}
         style={{ width: 200, height: 200, background: 'yellow' }}
         loop={loop}
-        frames={200}
+        frames={60}
         shapes={[
           {
             type: 'shape',
             source: AntDesign,
-            originX: 0,
-            originY: 0,
+            x: 15,
+            y: 15,
             frames: [
               {
                 frame: 0,
@@ -38,17 +47,9 @@ export default function Logo() {
                 y: 15,
                 rotate: 0,
               },
-              // {
-              //   frame: 10,
-              //   rotate: -30,
-              // },
-              // {
-              //   frame: 100,
-              //   rotate: 720,
-              // },
               {
-                frame: 200,
-                rotate: 720,
+                frame: 60,
+                rotate: 360,
               },
             ],
           },

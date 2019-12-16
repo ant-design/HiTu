@@ -93,19 +93,10 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
             opacity={opacity}
           >
             <g
-              // transform={`translate(${-centerX}, ${-centerY})`}
               transform={`matrix(${scaleX}, 0, 0, ${scaleY}, ${centerX -
                 scaleX * centerX}, ${centerY - scaleY * centerY})`}
             >
-              <g
-                transform={`rotate(${rotate}, ${centerX}, ${centerY})`}
-                // transform={`
-                //   translate(${centerX}, ${centerY})
-                //   scale(${scaleX}, ${scaleY})
-                //   rotate(${rotate}, ${centerX}, ${centerY})
-                //   translate(${-centerX}, ${-centerY})
-                // `}
-              >
+              <g transform={`rotate(${rotate}, ${centerX}, ${centerY})`}>
                 {debug && (
                   <rect
                     x="0"
