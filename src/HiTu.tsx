@@ -23,6 +23,7 @@ export interface HiTuProps {
   debug?: boolean;
   frames?: number;
   defaultPlay?: boolean;
+  defaultFrame?: number;
   loop?: boolean;
   onPlay?: (play: boolean) => void;
   onFrame?: (frame: number) => void;
@@ -38,6 +39,7 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
     shapes = [],
     debug,
     defaultPlay,
+    defaultFrame,
     loop,
     onPlay,
     onFrame,
@@ -48,6 +50,7 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
     frames,
     {
       defaultPlay,
+      defaultFrame,
       onPlay,
       onFrame,
       loop,
