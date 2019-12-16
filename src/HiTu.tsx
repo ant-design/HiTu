@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Shape, TYPE_SHAPE } from './interface';
-import { getTransform } from './utils/svgUtil';
 import useFramer, { FramerInfo } from './hooks/useFramer';
 import {
   EASE,
@@ -88,15 +87,24 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
         const centerY = height * originY;
 
         return (
-          <g key={index} transform={`translate(${x}, ${y})`} opacity={opacity}>
-            <g transform={`translate(${-centerX}, ${-centerY})`}>
+          <g
+            key={index}
+            transform={`translate(${x - centerX}, ${y - centerY})`}
+            opacity={opacity}
+          >
+            <g
+              // transform={`translate(${-centerX}, ${-centerY})`}
+              transform={`matrix(${scaleX}, 0, 0, ${scaleY}, ${centerX -
+                scaleX * centerX}, ${centerY - scaleY * centerY})`}
+            >
               <g
-                transform={`
-                  translate(${centerX}, ${centerY})
-                  scale(${scaleX}, ${scaleY})
-                  rotate(${rotate})
-                  translate(${-centerX}, ${-centerY})
-                `}
+                transform={`rotate(${rotate}, ${centerX}, ${centerY})`}
+                // transform={`
+                //   translate(${centerX}, ${centerY})
+                //   scale(${scaleX}, ${scaleY})
+                //   rotate(${rotate}, ${centerX}, ${centerY})
+                //   translate(${-centerX}, ${-centerY})
+                // `}
               >
                 {debug && (
                   <rect

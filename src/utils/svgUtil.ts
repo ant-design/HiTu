@@ -13,20 +13,6 @@ export const DEFAULT_VALUES: Required<Info> = {
 };
 export const INFO_KEYS = Object.keys(DEFAULT_VALUES) as (keyof Info)[];
 
-export function getTransform(info: Info, originX: number, originY: number) {
-  const { scaleX, scaleY, rotate, x, y } = fillInfo(info);
-  originX = Number.isNaN(originX) ? 0 : originX;
-  originY = Number.isNaN(originY) ? 0 : originY;
-
-  return `
-  translate(${originX}, ${originY})
-  scale(${scaleX} ${scaleY})
-  rotate(${rotate})
-  translate(${-originX}, ${-originY})
-  translate(${x}, ${y})
-  `;
-}
-
 export function fillInfo(
   info: Info,
   { frames = [] }: { frames?: FrameInfo[] } = {},
