@@ -1,3 +1,5 @@
-import HiTu from './HiTu';
+import HiTu, { HiTuProps, HiTuRefObject } from './HiTu';
+
+export { HiTuProps, HiTuRefObject };
 
 export default HiTu;

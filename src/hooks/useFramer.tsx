@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FrameInfo, Shape, Info } from '../interface';
+import { FrameInfo, Info } from '../interface';
 import { fillInfo, getTransitionValue } from '../utils/svgUtil';
 
 type ShapeInfo = Info & { frames?: FrameInfo[] };
@@ -13,6 +13,7 @@ export default function useFramer(
   totalFrames: number,
   config?: {
     defaultPlay?: boolean;
+    defaultFrame?: number;
     frameRate?: number;
     onPlay?: (play: boolean) => void;
     onFrame?: (frame: number) => void;
@@ -29,7 +30,7 @@ export default function useFramer(
   configRef.current = config || {};
 
   const [_, forceUpdate] = React.useState<object>({});
-  const frameRef = React.useRef(0);
+  const frameRef = React.useRef(configRef.current.defaultFrame || 0);
   const frameIdRef = React.useRef<number | null>(null);
   const triggerRef = React.useRef(false);
   const timestampRef = React.useRef(Date.now());
