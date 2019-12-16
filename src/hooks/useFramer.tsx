@@ -16,6 +16,7 @@ export default function useFramer(
     frameRate?: number;
     onPlay?: (play: boolean) => void;
     onFrame?: (frame: number) => void;
+    loop?: boolean;
   },
 ): [
   number,
@@ -23,28 +24,30 @@ export default function useFramer(
   (shapeInfo: ShapeInfo) => Required<Info>,
   () => FramerInfo,
 ] {
-  const { defaultPlay, frameRate = 16, onPlay, onFrame } = config || {};
+  const { defaultPlay, frameRate = 16, onPlay, onFrame, loop } = config || {};
 
   const [_, forceUpdate] = React.useState<object>({});
-  const [frame, setFrame] = React.useState(0);
+  const frameRef = React.useRef(0);
+  // const [frame, setFrame] = React.useState(0);
   const frameIdRef = React.useRef<number | null>(null);
   const triggerRef = React.useRef(false);
   const timestampRef = React.useRef(Date.now());
   const timesDiffRef = React.useRef(0);
   const initRef = React.useRef(false);
 
-  React.useEffect(() => {
-    if (onFrame) {
-      onFrame(frame);
-    }
-  }, [frame]);
+  let triggerMotion: (start?: boolean) => void;
+
+  function setFrame(frame: number) {
+    frameRef.current = frame;
+    forceUpdate({});
+  }
 
   function cancelMotion() {
     triggerRef.current = false;
     window.cancelAnimationFrame(frameIdRef.current!);
   }
 
-  function nextFrame() {
+  function nextFrame(manual: boolean) {
     if (!totalFrames || !triggerRef.current) {
       cancelMotion();
       return;
@@ -54,15 +57,30 @@ export default function useFramer(
       const now = Date.now();
       const timestampDiff = now - timestampRef.current + timesDiffRef.current;
       const frameDiff = Math.floor(timestampDiff / frameRate);
-      setFrame(currentFrame => (currentFrame + frameDiff) % totalFrames);
+      let targetFrame = frameRef.current + frameDiff;
+
+      if (targetFrame >= totalFrames) {
+        if (loop !== false || manual) {
+          targetFrame = 0;
+        } else {
+          targetFrame = totalFrames;
+          triggerMotion(false);
+        }
+      }
+
+      if (onFrame) {
+        onFrame(targetFrame);
+      }
+
+      setFrame(targetFrame);
       timesDiffRef.current = timestampDiff % frameRate;
       timestampRef.current = now;
 
-      nextFrame();
+      nextFrame(false);
     });
   }
 
-  function triggerMotion(start?: boolean) {
+  triggerMotion = (start?: boolean) => {
     const mergedStart = start !== undefined ? start : !triggerRef.current;
 
     if (triggerRef.current === mergedStart) {
@@ -73,7 +91,7 @@ export default function useFramer(
     if (mergedStart) {
       timestampRef.current = Date.now();
       timesDiffRef.current = 0;
-      nextFrame();
+      nextFrame(true);
     } else {
       cancelMotion();
     }
@@ -83,7 +101,7 @@ export default function useFramer(
     }
 
     forceUpdate({});
-  }
+  };
 
   function getFrameInfo({ frames, ...rest }: ShapeInfo): Required<Info> {
     if (!frames || !frames.length) {
@@ -95,13 +113,17 @@ export default function useFramer(
       const endFrame = frames[i + 1];
 
       // Getting motion
-      if (startFrame.frame <= frame && frame < endFrame.frame) {
+      if (
+        startFrame.frame <= frameRef.current &&
+        frameRef.current < endFrame.frame
+      ) {
         const startInfo = fillInfo(startFrame, {
           frames: frames.slice(0, i),
         });
         const endInfo = fillInfo(endFrame, { frames: frames.slice(0, i + 1) });
         const ptg =
-          (frame - startFrame.frame) / (endFrame.frame - startFrame.frame);
+          (frameRef.current - startFrame.frame) /
+          (endFrame.frame - startFrame.frame);
 
         const { cubic } = startFrame;
 
@@ -154,7 +176,7 @@ export default function useFramer(
   function getFramerInfo() {
     return {
       play: triggerRef.current,
-      frame,
+      frame: frameRef.current,
     };
   }
 
@@ -167,5 +189,5 @@ export default function useFramer(
   // Clean up
   React.useEffect(() => cancelMotion, []);
 
-  return [frame, triggerMotion, getFrameInfo, getFramerInfo];
+  return [frameRef.current, triggerMotion, getFrameInfo, getFramerInfo];
 }

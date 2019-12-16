@@ -67,19 +67,23 @@ export default () => {
         >
           Coder
         </Button>
+
+        {/* {hiTuRef.current?.getFramerInfo().frame} */}
       </div>
       <HiTu
         // debug
         width={1800}
         height={1000}
+        loop={false}
         style={{ height: '100%', width: '100%', background: '#FFFFFF' }}
         frames={200}
         ref={hiTuRef}
         onFrame={frame => {
-          if (frame > 100 && hiTuRef.current) {
-            hiTuRef.current.triggerMotion(false);
-          }
-          forceUpdate({});
+          console.log('>>>', frame);
+          // if (frame > 100 && hiTuRef.current) {
+          //   hiTuRef.current.triggerMotion(false);
+          // }
+          // forceUpdate({});
         }}
         defaultPlay={false}
         shapes={[
