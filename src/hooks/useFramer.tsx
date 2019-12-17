@@ -209,14 +209,16 @@ export default function useFramer(
     };
   }
 
-  // Default to start motion
-  if (!initRef.current && configRef.current.defaultPlay !== false) {
-    triggerMotion(true);
-    initRef.current = true;
-  }
+  React.useEffect(() => {
+    // Default to start motion
+    if (!initRef.current && configRef.current.defaultPlay !== false) {
+      triggerMotion(true);
+      initRef.current = true;
+    }
 
-  // Clean up
-  React.useEffect(() => cancelMotion, []);
+    // Clean up
+    return cancelMotion;
+  }, []);
 
   return [frameRef.current, triggerMotion, getFrameInfo, getFramerInfo];
 }
