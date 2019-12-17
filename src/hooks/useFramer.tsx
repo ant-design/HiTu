@@ -72,13 +72,31 @@ export default function useFramer(
         if (configRef.current.loop !== false || manual) {
           targetFrame = 0;
         } else {
-          targetFrame = totalFrames;
+          targetFrame = totalFrames - 1;
           triggerMotion(false);
         }
       }
 
+      /**
+       * Loop to trigger `onFrame`.
+       * This should trigger each event by each frame even if not displayed
+       */
       if (configRef.current.onFrame) {
-        configRef.current.onFrame(targetFrame);
+        const startFrame = frameRef.current;
+        let endFrame = targetFrame;
+
+        if (targetFrame === 0) {
+          endFrame = totalFrames - 1;
+        }
+
+        for (let frame = startFrame + 1; frame <= endFrame; frame += 1) {
+          configRef.current.onFrame(frame);
+        }
+
+        // Trigger missing frame: 0
+        if (targetFrame === 0) {
+          configRef.current.onFrame(0);
+        }
       }
 
       setFrame(targetFrame);

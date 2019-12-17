@@ -46,6 +46,9 @@ export default function Logo() {
         style={{ width: 200, height: 200, background: 'yellow' }}
         loop={loop}
         frames={60}
+        onFrame={frame => {
+          console.log('>>>', frame);
+        }}
         shapes={[
           {
             type: 'shape',
@@ -60,7 +63,7 @@ export default function Logo() {
                 rotate: 0,
               },
               {
-                frame: 60,
+                frame: 59,
                 rotate: 360,
               },
             ],
@@ -78,7 +81,7 @@ export default function Logo() {
                 rotate: 0,
               },
               {
-                frame: 60,
+                frame: 59,
                 rotate: 360,
               },
             ],
