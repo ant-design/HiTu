@@ -118,6 +118,11 @@ export default function useFramer(
     if (mergedStart) {
       timestampRef.current = Date.now();
       timesDiffRef.current = 0;
+
+      if (frameRef.current >= totalFrames - 1) {
+        frameRef.current = 0;
+      }
+
       nextFrame(true);
     } else {
       cancelMotion();

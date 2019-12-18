@@ -32,11 +32,11 @@ export default function Logo() {
     <div
       className="home-card-logo"
       onMouseEnter={() => {
-        setLoop(true);
+        // setLoop(true);
         hituRef.current?.triggerMotion(true);
       }}
       onMouseLeave={() => {
-        setLoop(false);
+        // setLoop(false);
       }}
     >
       <HiTu
@@ -47,7 +47,7 @@ export default function Logo() {
         loop={loop}
         frames={60}
         onFrame={frame => {
-          console.log('>>>', frame);
+          // console.log('>>>', frame);
         }}
         shapes={[
           {
