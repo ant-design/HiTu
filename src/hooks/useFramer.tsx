@@ -45,8 +45,10 @@ export default function useFramer(
   let triggerMotion: (start?: boolean) => void;
 
   function setFrame(frame: number) {
-    frameRef.current = frame;
-    forceUpdate({});
+    if (frameRef.current !== frame) {
+      frameRef.current = frame;
+      forceUpdate({});
+    }
   }
 
   function cancelMotion() {
