@@ -83,7 +83,7 @@ export default function useFramer(
        * Loop to trigger `onFrame`.
        * This should trigger each event by each frame even if not displayed
        */
-      if (configRef.current.onFrame) {
+      if (frameRef.current !== targetFrame && configRef.current.onFrame) {
         const startFrame = frameRef.current;
         let endFrame = targetFrame;
 
