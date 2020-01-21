@@ -37,7 +37,7 @@ glob('svg/**/*.svg', {}, function(er, files) {
   fs.removeSync(LIB_PATH);
   fs.ensureDirSync(LIB_PATH);
 
-  const tsxList = [];
+  const tsxList = new Set();
 
   // files = files.filter(f => f.includes('盆栽')).slice(0, 1);
 
@@ -55,7 +55,10 @@ glob('svg/**/*.svg', {}, function(er, files) {
 
     tsxPath = toEnglish(tsxPath);
 
-    tsxList.push(tsxPath);
+    if (tsxList.has(tsxPath)) {
+      throw new Error(`Name duplicated: ${file} - ${tsxPath}`);
+    }
+    tsxList.add(tsxPath);
 
     console.log('Convert:', file, '->', tsxPath);
 

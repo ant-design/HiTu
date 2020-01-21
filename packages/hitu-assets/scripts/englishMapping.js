@@ -65,6 +65,9 @@ module.exports = {
   地图: 'Map',
   灯泡: 'Bulb',
   凳子: 'Stool',
+  高脚凳: 'HighStool',
+  高脚凳子: 'HighStool', // Alias 高脚凳
+  长脚椅子: 'HighStool', // Alias 高脚凳
   电脑: 'Laptop',
   读书笔记: 'ReadingNotes',
   对话弹窗: 'Dialogue',
@@ -82,8 +85,10 @@ module.exports = {
   加载: 'Loading',
   金币: 'Coin',
   开心微笑表情: 'Smile',
+  微笑开心表情: 'Smile', // Alias 开心微笑表情
   哭泣表情: 'Cry',
   扩大镜: 'Magnifier',
+  放大镜: 'Magnifier', // Alias 扩大镜
   雷达: 'Radar',
   列表页: 'ListPage',
   流汗表情: 'Sweat',
@@ -97,7 +102,8 @@ module.exports = {
   日历: 'Calendar',
   上传: 'Upload',
   摄像头监控: 'Surveillance',
-  深色无边框显示器: 'BorderlessDisplay',
+  深色无边框显示器: 'BorderlessMonitor',
+  深色无边框色显示器: 'BorderlessMonitor', // Alias 深色无边框显示器
   时钟: 'Clock',
   收藏: 'Favorite',
   手机: 'Mobile',
@@ -108,8 +114,44 @@ module.exports = {
   锁: 'Lock',
   图片页: 'PicturePage',
   图片详情页: 'ImagePage',
+  图片预览页: 'PreviewPage',
   图文详情: 'GraphicDetails',
   图文详情页: 'GraphicDetailsPage',
+  图形书籍: 'GraphicBook',
+  图形详情页: 'GraphicPage',
+  团队: 'Team',
+  网页模块: 'WebModule',
+  文档: 'Document',
+  文件: 'File',
+  文件夹: 'Folder',
+  文字规范页: 'TextSpecificationPage',
+  文本详情页: 'TextPage',
+  文本页详情页: 'TextPage', // Alias 文本详情页
+  详情页: 'DetailPage',
+  系统页面: 'SystemPage',
+  系统加载页: 'LoadingPage',
+  项目文档: 'ProjectDocument',
+  信息: 'Information',
+  信用卡: 'CreditCard',
+  勋章页面: 'MedalPage',
+  问号: 'Question',
+  问好: 'Question', // Typo 问号
+  桌子: 'Desk',
+  柱状图表: 'BarChart',
+  智能眼镜: 'SmartGlasses',
+  账单: 'Receipt',
+  云端: 'Cloud',
+  长脚桌子: 'LongTable',
+  折线图表: 'LineChart',
+  游戏手柄: 'Gamepad',
+  邮件信息: 'Mail',
+  邮件详情: 'MailDetail',
+  虚拟现实: 'VirtualReality',
+  药瓶: 'PillBottle',
+  芯片: 'Chip',
+  已读信息: 'Read',
+  箱子: 'Box',
+  显示器: 'Monitor',
 
   // Background
   百分比符号: 'Percent',
@@ -123,6 +165,7 @@ module.exports = {
   代码符号: 'Code',
   点: 'Points',
   点立方: 'PointCube',
+  点立方体: 'PointCube', // TODO: Remove me when typo fixed
   点立法: 'PointCube', // TODO: Remove me when typo fixed
   点线: 'PointLine',
   点线结构: 'PointStructure',
