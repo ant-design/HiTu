@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>4.背景组件/彩色版/锥形</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 0.116639296 753.436262 0.116639296 753.436262 239.458575 0 239.458575"></polygon>
+        <polygon id="path-3" points="0 0.116672375 750.795556 0.116672375 750.795556 727.594728 0 727.594728"></polygon>
+    </defs>
+    <g id="4.背景组件/彩色版/锥形" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(135.000000, 90.000000)">
+            <g transform="translate(0.000000, 605.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M753.436262,119.787607 C753.436262,185.880892 584.53992,239.458575 376.194911,239.458575 C167.849903,239.458575 0,185.880892 0,119.787607 C0,53.6943225 167.849903,0.116639296 376.194911,0.116639296 C584.53992,0.116639296 753.436262,53.6943225 753.436262,119.787607" id="Fill-1" fill="#597EF7" mask="url(#mask-2)"></path>
+            </g>
+            <g>
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <g id="Clip-4"></g>
+                <polygon id="Fill-3" fill="#597EF7" mask="url(#mask-4)" points="11.1300662 727.594728 -0.000313856005 721.794499 377.311097 0.116672375 750.795556 721.817478 739.643206 727.571749 377.253556 27.3118404"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

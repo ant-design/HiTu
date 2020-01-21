@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>3.通用组件/彩色版/长脚椅子</title>
+    <desc>Created with Sketch.</desc>
+    <g id="3.通用组件/彩色版/长脚椅子" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-4" transform="translate(322.000000, 96.000000)">
+            <g id="编组-3">
+                <g id="编组-2">
+                    <g id="编组">
+                        <polygon id="Fill-1" fill="#253369" points="69.451536 592.998912 306.053616 592.998912 306.053616 544.639392 69.451536 544.639392"></polygon>
+                        <polygon id="Fill-2" fill="#597EF7" points="247.181616 50.82 310.541616 831.55248 364.946736 831.55248 301.586736 50.82"></polygon>
+                        <polygon id="Fill-3" fill="#597EF7" points="73.918416 50.82 10.558416 831.55248 64.963536 831.55248 128.323536 50.82"></polygon>
+                        <path d="M50.82,101.63472 C22.75152,101.63472 2.61124455e-13,78.8832 2.61124455e-13,50.82 C2.61124455e-13,22.7568 22.75152,-3.99680289e-14 50.82,-3.99680289e-14 L329.6568,-3.99680289e-14 C357.72,-3.99680289e-14 380.4768,22.7568 380.4768,50.82 C380.4768,78.8832 357.72,101.63472 329.6568,101.63472 L50.82,101.63472 Z" id="Fill-4" fill="#A3B5D6"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

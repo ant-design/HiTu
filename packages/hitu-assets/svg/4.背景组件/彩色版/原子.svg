@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>4.背景组件/彩色版/原子</title>
+    <desc>Created with Sketch.</desc>
+    <g id="4.背景组件/彩色版/原子" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(58.000000, 60.000000)">
+            <ellipse id="椭圆形" stroke="#597EF7" stroke-width="35.64" stroke-linejoin="round" transform="translate(441.893010, 451.944796) rotate(26.000000) translate(-441.893010, -451.944796) " cx="441.89301" cy="451.944796" rx="187.701494" ry="410.827466"></ellipse>
+            <ellipse id="椭圆形" stroke="#597EF7" stroke-width="17.82" stroke-linejoin="round" transform="translate(441.893010, 451.944796) rotate(-53.000000) translate(-441.893010, -451.944796) " cx="441.89301" cy="451.944796" rx="187.757241" ry="410.705535"></ellipse>
+            <circle id="椭圆形" fill="#FFFFFF" cx="657.5" cy="409.5" r="102.5"></circle>
+            <circle id="椭圆形" stroke="#597EF7" stroke-width="22.275" fill="#597EF7" cx="658" cy="410" r="43"></circle>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>3.通用组件/灰色版/图形书籍</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 823.847722 19.877297 829.742598 684.645267 829.742598 684.645267 0.189787707 19.8454048 0.189787707 0 3.94052513"></polygon>
+    </defs>
+    <g id="3.通用组件/灰色版/图形书籍" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-2" transform="translate(168.000000, 95.000000)">
+            <g id="编组">
+                <g transform="translate(0.000000, 0.967454)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Clip-4" fill="#A3B5D6" xlink:href="#path-1"></use>
+                    <polygon id="Stroke-3" stroke="#253368" stroke-width="2.5" mask="url(#mask-2)" points="61.1046982 783.53392 626.089973 783.53392 626.089973 62.2758273 61.1046982 62.2758273"></polygon>
+                    <polygon id="Fill-5" fill="#253368" mask="url(#mask-2)" points="20.0003472 829.742713 0.000347172634 823.847722 0.000347172634 3.94052513 20.0003472 0.189903431"></polygon>
+                    <polygon id="Fill-6" fill="#4E5C93" mask="url(#mask-2)" points="488.15597 542.221165 106.933801 542.221165 106.933801 160.998995"></polygon>
+                    <path d="M545.916355,257.909227 C545.916355,322.773805 493.333587,375.356572 428.470167,375.356572 C363.605589,375.356572 311.021664,322.773805 311.021664,257.909227 C311.021664,193.044649 363.605589,140.463039 428.470167,140.463039 C493.333587,140.463039 545.916355,193.044649 545.916355,257.909227" id="Fill-7" fill="#F7F7F7" mask="url(#mask-2)"></path>
+                    <polygon id="Fill-8" fill="#A3B5D6" mask="url(#mask-2)" points="488.15597 483.177515 549.767541 483.177515 549.767541 421.565945 488.15597 421.565945"></polygon>
+                </g>
+                <text id="几何体" font-family="PingFangSC-Semibold, PingFang SC" font-size="53.32734" font-weight="500" letter-spacing="0.0719999988" fill="#F7F7F7">
+                    <tspan x="118.474976" y="645.386087">几何体</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

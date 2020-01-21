@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>4.背景组件/灰色版/线性钻石</title>
+    <desc>Created with Sketch.</desc>
+    <g id="4.背景组件/灰色版/线性钻石" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-2" transform="translate(97.000000, 194.000000)" stroke="#4E5C93">
+            <g id="编组">
+                <polygon id="Fill-1" stroke-width="37.125" points="212.676567 0 0 219.107803 416.147278 635.978658 829.438613 216.064639 613.723809 0"></polygon>
+                <line x1="11.6079195" y1="219.740134" x2="817.830693" y2="219.740134" id="直线-4" stroke-width="29.7" stroke-linecap="square"></line>
+                <polyline id="路径-6" stroke-width="35.64" stroke-linecap="round" stroke-linejoin="round" points="212.676567 2.84217094e-14 212.676567 213.889066 413.200188 2.84217094e-14"></polyline>
+                <polyline id="路径-6备份" stroke-width="35.64" stroke-linecap="round" stroke-linejoin="round" transform="translate(513.925851, 106.944533) scale(-1, 1) translate(-513.925851, -106.944533) " points="413.664041 2.84217094e-14 413.664041 213.889066 614.187662 2.84217094e-14"></polyline>
+            </g>
+            <line x1="212" y1="219" x2="413" y2="622" id="路径-7" stroke-width="31.185"></line>
+            <line x1="418" y1="219" x2="619" y2="622" id="路径-7备份" stroke-width="31.185" transform="translate(518.500000, 420.500000) scale(-1, 1) translate(-518.500000, -420.500000) "></line>
+        </g>
+    </g>
+</svg>

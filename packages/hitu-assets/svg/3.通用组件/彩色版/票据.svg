@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>3.通用组件/彩色版/票据</title>
+    <desc>Created with Sketch.</desc>
+    <g id="3.通用组件/彩色版/票据" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="资源-12" transform="translate(66.000000, 185.000000)">
+            <g id="资源-11">
+                <line x1="805.8" y1="0.937325615" x2="805.8" y2="308.4" id="路径" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></line>
+                <g id="分组-2" transform="translate(124.800000, 33.600000)">
+                    <rect id="矩形-copy" fill="#597EF7" fill-rule="nonzero" x="-5.68434189e-13" y="0.912" width="766.836" height="384.288" rx="28.8"></rect>
+                    <rect id="矩形-copy-2" fill="#2A55BB" fill-rule="nonzero" x="307.2" y="96.912" width="344.4" height="38.4" rx="9.6"></rect>
+                    <rect id="矩形-copy-3" fill="#597EF7" fill-rule="nonzero" x="307.2" y="250.512" width="193.2" height="38.4" rx="9.6"></rect>
+                    <rect id="矩形-copy-4" fill="#2A55BB" fill-rule="nonzero" x="307.2" y="173.712" width="344.4" height="38.4" rx="9.6"></rect>
+                    <rect id="矩形-copy-5" fill="#2A55BB" fill-rule="nonzero" x="48" y="96.912" width="153.6" height="153.6" rx="19.2"></rect>
+                    <line x1="250.2" y1="96.912" x2="250.2" y2="346.92" id="路径-copy" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+                <rect id="矩形" fill="#E4EBF7" fill-rule="nonzero" x="0" y="268.8" width="766.836" height="384.288" rx="28.8"></rect>
+                <rect id="矩形" fill="#597EF7" fill-rule="nonzero" x="307.2" y="364.8" width="344.4" height="38.4" rx="9.6"></rect>
+                <rect id="矩形" fill="#597EF7" fill-rule="nonzero" x="307.2" y="518.4" width="193.2" height="38.4" rx="9.6"></rect>
+                <rect id="矩形" fill="#597EF7" fill-rule="nonzero" x="307.2" y="441.6" width="344.4" height="38.4" rx="9.6"></rect>
+                <rect id="矩形" fill="#597EF7" fill-rule="nonzero" x="48" y="364.8" width="153.6" height="153.6" rx="19.2"></rect>
+                <line x1="250.2" y1="364.8" x2="250.2" y2="614.808" id="路径" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></line>
+            </g>
+        </g>
+    </g>
+</svg>

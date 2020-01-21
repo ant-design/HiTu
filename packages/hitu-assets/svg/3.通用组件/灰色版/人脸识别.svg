@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>3.通用组件/灰色版/人脸识别</title>
+    <desc>Created with Sketch.</desc>
+    <g id="3.通用组件/灰色版/人脸识别" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="资源-18" transform="translate(51.000000, 52.000000)">
+            <path d="M565.884,701.364 L565.884,570.132 L346.8,570.132 L346.8,701.364 C115.368,784.8 89.448,844.296 89.448,844.296 L823.284,844.296 C823.284,844.296 797.364,784.8 565.884,701.364 Z" id="路径" fill="#A3B5D6" fill-rule="nonzero"></path>
+            <path d="M703.368,393.468 C703.368,362.964 687.624,336.732 665.04,325.068 C666.132,286.536 665.28,259.536 665.28,259.536 C665.28,187.968 624.888,125.388 564.624,91.308 L564.624,39.444 C394.224,39.444 339.432,101.028 339.432,101.028 C287.904,136.56 254.4,194.304 254.4,259.5 C254.4,259.5 253.608,285.204 254.58,322.248 C228.684,332.052 210,360.228 210,393.468 C210,432.204 235.38,464.076 267.936,468 C275.232,508.08 286.296,544.44 303,566.616 C352.932,632.916 413.484,660.828 459.84,660.828 C506.196,660.828 566.76,632.916 616.68,566.616 C633.6,544.212 644.652,507.36 651.948,466.8 C681.312,459.72 703.368,429.6 703.368,393.468 Z" id="路径" fill="#CED7EC" fill-rule="nonzero"></path>
+            <line x1="249.6" y1="252.672" x2="351.996" y2="252.672" id="路径" stroke="#FFFFFF" stroke-width="8.904" stroke-linecap="round" stroke-linejoin="round"></line>
+            <circle id="椭圆形" stroke="#FFFFFF" stroke-width="8.904" stroke-linecap="round" stroke-linejoin="round" cx="375.96" cy="254.196" r="23.964"></circle>
+            <line x1="645.216" y1="505.392" x2="542.808" y2="505.392" id="路径" stroke="#FFFFFF" stroke-width="8.904" stroke-linecap="round" stroke-linejoin="round"></line>
+            <circle id="椭圆形" stroke="#FFFFFF" stroke-width="8.904" stroke-linecap="round" stroke-linejoin="round" cx="518.856" cy="503.868" r="23.964"></circle>
+            <rect id="矩形" fill="#4E5C93" fill-rule="nonzero" x="0" y="0" width="38.4" height="153.6"></rect>
+            <rect id="矩形" fill="#4E5C93" fill-rule="nonzero" transform="translate(76.200000, 19.200000) rotate(90.000000) translate(-76.200000, -19.200000) " x="57" y="-57" width="38.4" height="152.4"></rect>
+            <rect id="矩形" fill="#4E5C93" fill-rule="nonzero" transform="translate(902.400000, 76.800000) rotate(-180.000000) translate(-902.400000, -76.800000) " x="883.2" y="-8.52651283e-14" width="38.4" height="153.6"></rect>
+            <rect id="矩形" fill="#4E5C93" fill-rule="nonzero" transform="translate(845.400000, 19.200000) rotate(90.000000) translate(-845.400000, -19.200000) " x="826.2" y="-57" width="38.4" height="152.4"></rect>
+            <rect id="矩形" fill="#4E5C93" fill-rule="nonzero" x="0" y="767.328" width="38.4" height="153.6"></rect>
+            <rect id="矩形" fill="#4E5C93" fill-rule="nonzero" transform="translate(76.200000, 901.728000) rotate(-90.000000) translate(-76.200000, -901.728000) " x="57" y="825.528" width="38.4" height="152.4"></rect>
+            <rect id="矩形" fill="#4E5C93" fill-rule="nonzero" transform="translate(902.400000, 844.128000) rotate(180.000000) translate(-902.400000, -844.128000) " x="883.2" y="767.328" width="38.4" height="153.6"></rect>
+            <rect id="矩形" fill="#4E5C93" fill-rule="nonzero" transform="translate(845.400000, 901.728000) rotate(-90.000000) translate(-845.400000, -901.728000) " x="826.2" y="825.528" width="38.4" height="152.4"></rect>
+        </g>
+    </g>
+</svg>

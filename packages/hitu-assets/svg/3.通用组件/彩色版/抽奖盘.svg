@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>3.通用组件/彩色版/抽奖盘</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M9.64285715e-05,431.999904 C9.64285715e-05,670.586368 193.412668,863.999904 432.000096,863.999904 C670.586561,863.999904 864.000096,670.586368 864.000096,431.999904 C864.000096,193.412475 670.586561,-9.64285715e-05 432.000096,-9.64285715e-05 C193.412668,-9.64285715e-05 9.64285715e-05,193.412475 9.64285715e-05,431.999904 Z" id="path-1"></path>
+        <filter x="-0.8%" y="-0.6%" width="101.6%" height="101.6%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="3.通用组件/彩色版/抽奖盘" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-2" transform="translate(38.000000, 38.000000)">
+            <g id="分组" transform="translate(42.000000, 42.000000)">
+                <g id="Fill-1">
+                    <g>
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use fill="#CCD7EE" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+            <g id="分组" transform="translate(129.600000, 129.600000)" fill="#597EF7">
+                <g id="Fill-1">
+                    <path d="M7.6875e-05,344.399923 C7.6875e-05,534.606354 154.192877,688.799923 344.400077,688.799923 C534.606508,688.799923 688.800077,534.606354 688.800077,344.399923 C688.800077,154.192723 534.606508,-7.68750001e-05 344.400077,-7.68750001e-05 C154.192877,-7.68750001e-05 7.6875e-05,154.192723 7.6875e-05,344.399923 Z"></path>
+                </g>
+            </g>
+            <path d="" id="路径-10" stroke="#979797" stroke-width="6"></path>
+            <g id="编组" transform="translate(474.000000, 474.282843) rotate(45.000000) translate(-474.000000, -474.282843) translate(139.000000, 139.282843)" fill="#E4EBF7">
+                <path d="M334.8,334.8 L334.802586,334.807757 L571.609756,571.554319 C510.998667,632.133088 427.276269,669.6 334.8,669.6 L334.8,669.6 L334.8,334.8 Z M334.79095,334.8 L98.0453023,571.609756 C37.46806,510.999629 0,427.276774 0,334.8 L0,334.8 L334.79095,334.8 Z M334.8,0 L334.8,334.8 L334.797414,334.792243 L97.9902439,98.0456809 C158.601333,37.4669118 242.323731,0 334.8,0 L334.8,0 Z M571.553405,97.9902439 C632.133233,158.60004 669.6,242.323731 669.6,334.8 L669.6,334.8 L334.8,334.8 L334.80905,334.797414 Z" id="形状结合"></path>
+            </g>
+            <path d="M432,265.796186 L474,217.2 L516,265.796186 L474,472.8 L432,265.796186 Z" id="形状结合" fill="#FFFFFF"></path>
+            <path d="M417.600077,473.999923 C417.600077,505.148712 442.851163,530.399923 474.000077,530.399923 C505.148865,530.399923 530.400077,505.148712 530.400077,473.999923 C530.400077,442.851009 505.148865,417.599923 474.000077,417.599923 C442.851163,417.599923 417.600077,442.851009 417.600077,473.999923 Z" id="Fill-1" fill="#253369"></path>
+            <circle id="椭圆形" fill="#FFFFFF" cx="474.6" cy="83.4" r="25.8"></circle>
+            <circle id="椭圆形备份-4" fill="#FFFFFF" cx="769.8" cy="217.8" r="25.8"></circle>
+            <circle id="椭圆形备份-5" fill="#FFFFFF" cx="185.4" cy="217.8" r="25.8"></circle>
+            <circle id="椭圆形备份-6" fill="#FFFFFF" cx="185.4" cy="733.8" r="25.8"></circle>
+            <circle id="椭圆形备份-7" fill="#FFFFFF" cx="769.8" cy="733.8" r="25.8"></circle>
+            <circle id="椭圆形备份" fill="#FFFFFF" cx="474.6" cy="863.4" r="25.8"></circle>
+            <circle id="椭圆形备份-2" fill="#FFFFFF" cx="87" cy="469.8" r="25.8"></circle>
+            <circle id="椭圆形备份-3" fill="#FFFFFF" cx="861" cy="469.8" r="25.8"></circle>
+        </g>
+    </g>
+</svg>

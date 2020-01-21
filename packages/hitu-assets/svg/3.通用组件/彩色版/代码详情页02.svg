@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>3.通用组件/彩色版/代码详情页02</title>
+    <desc>Created with Sketch.</desc>
+    <g id="3.通用组件/彩色版/代码详情页02" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-5" transform="translate(56.000000, 161.000000)" fill-rule="nonzero">
+            <rect id="矩形-copy-15" fill="#597EF7" x="114.991304" y="376.695652" width="109.750444" height="27.0822996" rx="6.05429217"></rect>
+            <rect id="矩形-copy-16" fill="#AAC2FE" x="114.991304" y="428.243478" width="109.750444" height="26.2623844" rx="5.96243395"></rect>
+            <rect id="矩形-copy-17" fill="#FF7946" x="114.991304" y="479.791304" width="109.750444" height="26.2623844" rx="5.96243395"></rect>
+            <rect id="矩形-copy-18" fill="#AAC2FE" x="114.991304" y="531.33913" width="109.750444" height="26.2623844" rx="5.96243395"></rect>
+            <rect id="矩形" fill="#E4EBF7" x="0" y="31.7217391" width="912" height="669.984716" rx="26.7025103"></rect>
+            <rect id="矩形" fill="#597EF7" x="297.391304" y="150.678261" width="539.269565" height="491.686957" rx="10.1509565"></rect>
+            <g id="分组" transform="translate(364.800000, 218.086957)">
+                <rect id="矩形-copy-20" fill="#FFFFFF" x="0" y="83.2695652" width="380.66087" height="23.7913043"></rect>
+                <rect id="矩形-copy-20" fill="#FFC53D" x="0" y="166.53913" width="190.330435" height="23.7913043"></rect>
+                <rect id="矩形-copy-44" fill="#FFC53D" x="162.573913" y="0" width="190.330435" height="23.7913043"></rect>
+                <rect id="矩形-copy-20" fill="#FFFFFF" x="0" y="329.113043" width="348.93913" height="23.7913043"></rect>
+                <rect id="矩形-copy-20" fill="#FFFFFF" x="0" y="0" width="114.991304" height="23.7913043"></rect>
+                <rect id="矩形-copy-21" fill="#E4EBF7" x="229.982609" y="166.53913" width="55.5130435" height="23.7913043"></rect>
+                <rect id="矩形-copy-20" fill="#E4EBF7" x="0" y="245.843478" width="281.530435" height="23.7913043"></rect>
+            </g>
+            <path d="M24.4285714,-4.4408921e-14 L887.113393,-4.4408921e-14 C900.60492,-4.4408921e-14 911.541964,10.7097545 911.541964,23.9209062 L911.541964,95.2052069 L1.13686838e-13,95.2052069 L1.13686838e-13,23.9209062 C1.13686838e-13,10.7097545 10.937044,-4.4408921e-14 24.4285714,-4.4408921e-14 Z" id="路径" fill="#253369"></path>
+            <ellipse id="椭圆形" fill="#FF7946" cx="53.1228494" cy="48.795286" rx="17.4358929" ry="17.0735468"></ellipse>
+            <ellipse id="椭圆形" fill="#FFC53D" cx="120.531545" cy="48.795286" rx="17.4358929" ry="17.0735468"></ellipse>
+            <ellipse id="椭圆形" fill="#BAE637" cx="183.975023" cy="48.795286" rx="17.4358929" ry="17.0735468"></ellipse>
+            <rect id="矩形-copy-14" fill="#FFFFFF" x="71.373913" y="142.747826" width="198.26087" height="499.617391" rx="10.6585043"></rect>
+            <rect id="矩形-copy-15" fill="#597EF7" x="114.991304" y="376.695652" width="109.750444" height="27.0822996" rx="6.05429217"></rect>
+            <rect id="矩形-copy-16" fill="#AAC2FE" x="114.991304" y="428.243478" width="109.750444" height="26.2623844" rx="5.96243395"></rect>
+            <rect id="矩形-copy-17" fill="#FF7946" x="114.991304" y="479.791304" width="109.750444" height="26.2623844" rx="5.96243395"></rect>
+            <rect id="矩形-copy-18" fill="#AAC2FE" x="114.991304" y="531.33913" width="109.750444" height="26.2623844" rx="5.96243395"></rect>
+            <g id="分组-3-copy-2" transform="translate(118.956522, 206.191304)">
+                <ellipse id="椭圆形" fill="#FFC53D" cx="49.5440486" cy="49.7609252" rx="49.0251209" ry="49.5821435"></ellipse>
+                <path d="M49.5440486,99.3430815 C63.6740611,99.351021 77.0839896,93.0378336 86.1750061,82.0977794 C79.0118497,68.3446467 64.9062753,59.7352531 49.5363885,59.7352531 C34.1665016,59.7352531 20.0609272,68.3446467 12.8977708,82.0977794 C21.9935474,93.0402496 35.4091463,99.353466 49.5440486,99.3430815 L49.5440486,99.3430815 Z" id="路径" fill="#253369"></path>
+                <ellipse id="椭圆形" fill="#253369" cx="49.8044946" cy="43.0595887" rx="18.4380416" ry="18.6475343"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

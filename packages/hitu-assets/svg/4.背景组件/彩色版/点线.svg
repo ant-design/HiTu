@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>4.背景组件/彩色版/点线</title>
+    <desc>Created with Sketch.</desc>
+    <g id="4.背景组件/彩色版/点线" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-13备份" transform="translate(511.500000, 512.000000) rotate(-315.000000) translate(-511.500000, -512.000000) translate(120.500000, 178.000000)">
+            <line x1="85.2946255" y1="296.524387" x2="206.185535" y2="535.524387" id="直线" stroke="#597EF7" stroke-width="12.34926" stroke-linecap="round"></line>
+            <ellipse id="椭圆形" fill="#597EF7" cx="61.48824" cy="262.582215" rx="61" ry="61.5"></ellipse>
+            <ellipse id="椭圆形备份-2" fill="#597EF7" cx="720.51176" cy="385.618795" rx="61" ry="61.5"></ellipse>
+            <line x1="268.354803" y1="171.300776" x2="524.357349" y2="606.064348" id="直线备份" stroke="#597EF7" stroke-width="12.34926" stroke-linecap="round" transform="translate(396.303301, 388.800776) scale(-1, 1) rotate(-180.000000) translate(-396.303301, -388.800776) "></line>
+            <ellipse id="椭圆形备份" fill="#597EF7" transform="translate(267.963420, 606.236111) scale(-1, 1) rotate(-180.000000) translate(-267.963420, -606.236111) " cx="267.96342" cy="606.236111" rx="61" ry="61.5"></ellipse>
+            <line x1="587.397056" y1="82.3362185" x2="669.650922" y2="312.567886" id="直线备份" stroke="#597EF7" stroke-width="12.34926" stroke-linecap="round" transform="translate(628.523989, 197.452052) scale(-1, 1) rotate(-315.000000) translate(-628.523989, -197.452052) "></line>
+            <circle id="椭圆形备份" fill="#597EF7" transform="translate(576.131123, 87.047247) scale(-1, 1) rotate(-315.000000) translate(-576.131123, -87.047247) " cx="576.131123" cy="87.0472467" r="61.0947906"></circle>
+        </g>
+    </g>
+</svg>

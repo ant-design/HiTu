@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>4.背景组件/灰色版/贝塞尔曲线</title>
+    <desc>Created with Sketch.</desc>
+    <g id="4.背景组件/灰色版/贝塞尔曲线" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-2" transform="translate(71.000000, 196.000000)" stroke="#4E5C93">
+            <g id="编组">
+                <rect id="矩形" stroke-width="16.335" x="8.1675" y="8.1675" width="72.1773309" height="72.1791743"></rect>
+                <rect id="矩形备份" stroke-width="16.335" x="799.928487" y="8.1675" width="72.1773309" height="72.1791743"></rect>
+                <line x1="84.312262" y1="44.263211" x2="791.403428" y2="44.263211" id="直线-3" stroke-width="22.275" stroke-linecap="square"></line>
+            </g>
+            <polygon id="三角形备份-2" stroke-width="26.73" fill="#4E5C93" points="440.5 219 647 632 234 632"></polygon>
+            <path d="M781,381 C781,192.6709 628.552957,40 440.5,40 C252.447043,40 100,192.6709 100,381" id="路径备份-2" stroke-width="22.275"></path>
+            <rect id="矩形备份-2" stroke-width="16.335" fill="#FFFFFF" x="402.1675" y="8.1675" width="72.665" height="72.665"></rect>
+            <rect id="矩形备份-3" stroke-width="16.335" fill="#FFFFFF" x="64.1675" y="365.1675" width="72.665" height="72.665" rx="36.3325"></rect>
+            <rect id="矩形备份-4" stroke-width="16.335" fill="#FFFFFF" x="745.1675" y="365.1675" width="72.665" height="72.665" rx="36.3325"></rect>
+        </g>
+    </g>
+</svg>

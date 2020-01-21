@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>3.通用组件/灰色版/文件夹02</title>
+    <desc>Created with Sketch.</desc>
+    <g id="3.通用组件/灰色版/文件夹02" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="资源-25" transform="translate(80.000000, 113.000000)" fill-rule="nonzero">
+            <rect id="矩形" fill="#4E5C93" x="0" y="71.7986087" width="863.00391" height="673.891435" rx="25.9849624"></rect>
+            <path d="M41.7058647,0 L263.758195,0 C286.791709,0 305.46406,18.6706603 305.46406,41.702087 L305.46406,657.208435 C305.46406,666.422201 297.99415,673.891435 288.779549,673.891435 L16.6845113,673.891435 C7.46991014,673.891435 0,666.422201 0,657.208435 L0,41.702087 C0,18.6706603 18.6723516,0 41.7058647,0 Z" id="路径" fill="#4E5C93"></path>
+            <rect id="矩形" fill="#A3B5D6" x="94.1630075" y="128.776304" width="674.667068" height="627.501652" rx="22.9750376"></rect>
+            <rect id="矩形" fill="#E4EBF7" x="-5.68434189e-14" y="202.794261" width="863.00391" height="593.529391" rx="25.2703759"></rect>
+            <rect id="矩形" fill="#4E5C93" x="98.0932331" y="272.741609" width="164.71218" height="63.4408696" rx="8.66165414"></rect>
+            <rect id="矩形" fill="#A3B5D6" x="663.915789" y="574.756957" width="138.586466" height="138.573913" rx="17.3233083"></rect>
+        </g>
+    </g>
+</svg>

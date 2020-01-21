@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>4.背景组件/彩色版/六边形点阵结构</title>
+    <desc>Created with Sketch.</desc>
+    <g id="4.背景组件/彩色版/六边形点阵结构" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(125.000000, 83.000000)">
+            <polygon id="Fill-1" stroke="#597EF7" stroke-width="16.335" transform="translate(387.000000, 435.000000) rotate(90.000000) translate(-387.000000, -435.000000) " points="205.500501 121 24 435.001002 205.500501 749 568.501504 749 750 435.001002 568.501504 121"></polygon>
+            <polygon id="Fill-1" stroke="#597EF7" stroke-width="16.335" transform="translate(384.500000, 435.500000) rotate(90.000000) translate(-384.500000, -435.500000) " points="263.250335 315 142 435.500384 263.250335 556 505.751005 556 627 435.500384 505.751005 315"></polygon>
+            <circle id="椭圆形" fill="#597EF7" cx="387" cy="73" r="73"></circle>
+            <circle id="椭圆形备份-6" fill="#597EF7" cx="386.5" cy="435.5" r="38.5"></circle>
+            <circle id="椭圆形备份" fill="#597EF7" cx="387" cy="785" r="73"></circle>
+            <circle id="椭圆形备份-2" fill="#597EF7" cx="73" cy="604" r="73"></circle>
+            <circle id="椭圆形备份-3" fill="#597EF7" cx="701" cy="604" r="73"></circle>
+            <circle id="椭圆形备份-4" fill="#597EF7" cx="701" cy="243" r="73"></circle>
+            <circle id="椭圆形备份-5" fill="#597EF7" cx="73" cy="243" r="73"></circle>
+        </g>
+    </g>
+</svg>
