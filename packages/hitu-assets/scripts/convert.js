@@ -2,6 +2,9 @@ const glob = require('glob');
 const fs = require('fs-extra');
 const path = require('path');
 const jsdom = require('jsdom');
+const chalk = require('chalk');
+
+const englishMapping = require('./englishMapping');
 
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
@@ -14,7 +17,23 @@ function toModuleName(path) {
   return path.slice(`${LIB_PATH}/`.length).replace('.tsx', '');
 }
 
-glob('svgs/**/*.svg', {}, function(er, files) {
+function toEnglish(path) {
+  let retPath = path;
+  const names = Object.keys(englishMapping);
+  names.forEach(name => {
+    retPath = retPath.replace(name, englishMapping[name]);
+  });
+
+  return retPath;
+}
+
+glob('svg/**/*.svg', {}, function(er, files) {
+  console.log(
+    chalk.yellow('Find'),
+    chalk.green(files.length),
+    chalk.yellow('assets'),
+  );
+
   fs.removeSync(LIB_PATH);
   fs.ensureDirSync(LIB_PATH);
 
@@ -23,16 +42,24 @@ glob('svgs/**/*.svg', {}, function(er, files) {
   // files = files.filter(f => f.includes('盆栽')).slice(0, 1);
 
   files.forEach(file => {
-    console.log('Convert:', file);
-
-    // Path name
-    const tsxPath = path.join(
+    // ==================== Path name ====================
+    let tsxPath = path.join(
       LIB_PATH,
-      file.replace(/[\/\.]+/g, '_').replace('_svg', '.tsx'),
+      file
+        .replace('.svg', '_tsx')
+        .replace('svg/', '')
+        .replace(/\d+\./g, '')
+        .replace(/\//g, '_')
+        .replace('_tsx', '.tsx'),
     );
+
+    tsxPath = toEnglish(tsxPath);
+
     tsxList.push(tsxPath);
 
-    // Module name
+    console.log('Convert:', file, '->', tsxPath);
+
+    // =================== Module name ===================
     const moduleName = toModuleName(tsxPath);
 
     let text = fs.readFileSync(file, 'utf8').replace(/\<\?[^>]*>/, '');
@@ -88,6 +115,7 @@ glob('svgs/**/*.svg', {}, function(er, files) {
     fs.writeFileSync(tsxPath, fileContent, 'utf8');
   });
 
+  // ==================== Entry Index ====================
   let indexText = '';
   tsxList.forEach(path => {
     indexText += `export { default as ${toModuleName(
@@ -95,6 +123,5 @@ glob('svgs/**/*.svg', {}, function(er, files) {
     )} } from '${path.replace(LIB_PATH, '.').replace('.tsx', '')}'\n`;
   });
 
-  console.log(indexText);
   fs.writeFileSync(path.join(LIB_PATH, 'index.tsx'), indexText, 'utf8');
 });

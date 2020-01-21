@@ -9,8 +9,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chalk": "^3.0.0",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.6",
+    "jquery": "^3.4.1",
     "jsdom": "^16.0.1"
   }
 }
