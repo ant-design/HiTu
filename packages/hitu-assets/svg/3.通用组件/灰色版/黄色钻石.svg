@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
-    <title>3.通用组件/灰色版/黄色钻石</title>
-    <desc>Created with Sketch.</desc>
-    <g id="3.通用组件/灰色版/黄色钻石" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="编组" transform="translate(56.000000, 143.000000)">
-            <polygon id="路径-3" fill="#E4EBF7" points="0 194 155.593727 0 315 194"></polygon>
-            <polygon id="路径-3备份" fill="#E4EBF7" transform="translate(760.500000, 97.000000) scale(-1, 1) translate(-760.500000, -97.000000) " points="608 194 763.8025 0 913 194"></polygon>
-            <polygon id="路径-4" fill="#E4EBF7" points="0 194 456 738 315.144231 194"></polygon>
-            <polygon id="路径-4备份" fill="#4E5C93" transform="translate(683.500000, 466.000000) scale(-1, 1) translate(-683.500000, -466.000000) " points="456 194 911 738 759.915385 194"></polygon>
-            <polygon id="路径-5" fill="#A3B5D6" points="154 7.74033615e-15 457 0 305.5 194"></polygon>
-            <polygon id="路径-5备份" fill="#A3B5D6" points="455 0 758 0 607.597826 194"></polygon>
-            <polygon id="路径-6" fill="#E4EBF7" points="305 193.736999 456.308288 0 608 193.736999 590.583421 252 322.695806 249.480139"></polygon>
-            <polygon id="路径-7" fill="#A3B5D6" points="306 194 456.251728 738 608 194"></polygon>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" version="1.1" viewBox="0 0 1024 1024"><title>3.通用组件/灰色版/黄色钻石</title><desc>Created with Sketch.</desc><g id="3.通用组件/灰色版/黄色钻石" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="编组" transform="translate(56.000000, 143.000000)"><polygon id="路径-3" fill="#E4EBF7" points="0 194 155.594 0 315 194"/><polygon id="路径-3备份" fill="#E4EBF7" points="608 194 763.803 0 913 194" transform="translate(760.500000, 97.000000) scale(-1, 1) translate(-760.500000, -97.000000)"/><polygon id="路径-4" fill="#E4EBF7" points="0 194 456 738 315.144 194"/><polygon id="路径-4备份" fill="#4E5C93" points="456 194 911 738 759.915 194" transform="translate(683.500000, 466.000000) scale(-1, 1) translate(-683.500000, -466.000000)"/><polygon id="路径-5" fill="#A3B5D6" points="154 0 457 0 305.5 194"/><polygon id="路径-5备份" fill="#A3B5D6" points="455 0 758 0 607.598 194"/><polygon id="路径-6" fill="#E4EBF7" points="305 193.737 456.308 0 608 193.737 590.583 252 322.696 249.48"/><polygon id="路径-7" fill="#A3B5D6" points="306 194 456.252 738 608 194"/></g></g></svg>

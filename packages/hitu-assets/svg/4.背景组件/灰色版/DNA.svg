@@ -1,16 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
-    <title>4.背景组件/灰色版/DNA</title>
-    <desc>Created with Sketch.</desc>
-    <g id="4.背景组件/灰色版/DNA" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="编组" transform="translate(367.000000, 76.000000)" stroke="#4E5C93" stroke-width="29.7">
-            <path d="M0,0 C0,80.6335735 65.1425689,146 145.5,146 L145.5,146 C225.857431,146 291,80.6335735 291,0" id="路径"></path>
-            <circle id="椭圆形备份-3" cx="145.5" cy="291.5" r="145.5"></circle>
-            <path d="M146,218 C105.683213,218 73,250.907071 73,291.5 C73,332.092929 105.683213,365 146,365 L146,365" id="路径"></path>
-            <path d="M233,509 C192.683213,509 160,541.907071 160,582.5 C160,623.092929 192.683213,656 233,656 L233,656" id="路径备份" transform="translate(196.500000, 582.500000) scale(-1, 1) translate(-196.500000, -582.500000) "></path>
-            <circle id="椭圆形备份-4" cx="145.5" cy="582.5" r="145.5"></circle>
-            <path d="M291,873 C291,792.366427 225.857431,727 145.5,727 C65.1425689,727 0,792.366427 0,873" id="路径"></path>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" version="1.1" viewBox="0 0 1024 1024"><title>4.背景组件/灰色版/DNA</title><desc>Created with Sketch.</desc><g id="4.背景组件/灰色版/DNA" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="编组" stroke="#4E5C93" stroke-width="29.7" transform="translate(367.000000, 76.000000)"><path id="路径" d="M0,0 C0,80.6335735 65.1425689,146 145.5,146 L145.5,146 C225.857431,146 291,80.6335735 291,0"/><circle id="椭圆形备份-3" cx="145.5" cy="291.5" r="145.5"/><path id="路径" d="M146,218 C105.683213,218 73,250.907071 73,291.5 C73,332.092929 105.683213,365 146,365 L146,365"/><path id="路径备份" d="M233,509 C192.683213,509 160,541.907071 160,582.5 C160,623.092929 192.683213,656 233,656 L233,656" transform="translate(196.500000, 582.500000) scale(-1, 1) translate(-196.500000, -582.500000)"/><circle id="椭圆形备份-4" cx="145.5" cy="582.5" r="145.5"/><path id="路径" d="M291,873 C291,792.366427 225.857431,727 145.5,727 C65.1425689,727 0,792.366427 0,873"/></g></g></svg>

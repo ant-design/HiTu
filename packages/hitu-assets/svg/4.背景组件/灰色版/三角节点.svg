@@ -1,17 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
-    <title>4.背景组件/灰色版/三角节点</title>
-    <desc>Created with Sketch.</desc>
-    <g id="4.背景组件/灰色版/三角节点" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="编组" transform="translate(137.000000, 160.000000)">
-            <polygon id="Stroke-1" stroke="#4E5C93" stroke-width="19.008" stroke-linecap="round" stroke-linejoin="round" points="38.016 41.58 38.016 667.656 713.988 667.656"></polygon>
-            <polygon id="Fill-2" fill="#FFFFFF" points="0 71.28 71.28 71.28 71.28 0 0 0"></polygon>
-            <polygon id="Stroke-3" stroke="#4E5C93" stroke-width="19.008" stroke-linecap="round" stroke-linejoin="round" points="0 71.28 71.28 71.28 71.28 0 0 0"></polygon>
-            <polygon id="Fill-5" fill="#FFFFFF" points="0 703.296 71.28 703.296 71.28 632.016 0 632.016"></polygon>
-            <polygon id="Stroke-6" stroke="#4E5C93" stroke-width="19.008" stroke-linecap="round" stroke-linejoin="round" points="0 703.296 71.28 703.296 71.28 632.016 0 632.016"></polygon>
-            <polygon id="Fill-8" fill="#FFFFFF" points="678.348 703.296 749.628 703.296 749.628 632.016 678.348 632.016"></polygon>
-            <polygon id="Stroke-9" stroke="#4E5C93" stroke-width="19.008" stroke-linecap="round" stroke-linejoin="round" points="678.348 703.296 749.628 703.296 749.628 632.016 678.348 632.016"></polygon>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" version="1.1" viewBox="0 0 1024 1024"><title>4.背景组件/灰色版/三角节点</title><desc>Created with Sketch.</desc><g id="4.背景组件/灰色版/三角节点" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="编组" transform="translate(137.000000, 160.000000)"><polygon id="Stroke-1" stroke="#4E5C93" stroke-linecap="round" stroke-linejoin="round" stroke-width="19.008" points="38.016 41.58 38.016 667.656 713.988 667.656"/><polygon id="Fill-2" fill="#FFF" points="0 71.28 71.28 71.28 71.28 0 0 0"/><polygon id="Stroke-3" stroke="#4E5C93" stroke-linecap="round" stroke-linejoin="round" stroke-width="19.008" points="0 71.28 71.28 71.28 71.28 0 0 0"/><polygon id="Fill-5" fill="#FFF" points="0 703.296 71.28 703.296 71.28 632.016 0 632.016"/><polygon id="Stroke-6" stroke="#4E5C93" stroke-linecap="round" stroke-linejoin="round" stroke-width="19.008" points="0 703.296 71.28 703.296 71.28 632.016 0 632.016"/><polygon id="Fill-8" fill="#FFF" points="678.348 703.296 749.628 703.296 749.628 632.016 678.348 632.016"/><polygon id="Stroke-9" stroke="#4E5C93" stroke-linecap="round" stroke-linejoin="round" stroke-width="19.008" points="678.348 703.296 749.628 703.296 749.628 632.016 678.348 632.016"/></g></g></svg>

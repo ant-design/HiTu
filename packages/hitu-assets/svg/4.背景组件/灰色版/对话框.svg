@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
-    <title>4.背景组件/灰色版/对话框</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <polygon id="path-1" points="0 0 669 0 669 667 0 667"></polygon>
-    </defs>
-    <g id="4.背景组件/灰色版/对话框" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="分组" transform="translate(178.000000, 179.000000)">
-            <mask id="mask-2" fill="white">
-                <use xlink:href="#path-1"></use>
-            </mask>
-            <g id="Clip-2"></g>
-            <path d="M616.07869,513.591118 C649.569606,461.647875 669,399.837719 669,333.50093 C669,148.842438 517.452329,-1.21153536 332.245509,0.00737383685 C149.476501,1.20961419 1.50874571,148.5549 0.011367109,330.709941 C-1.50168538,514.888162 148.22886,666.168337 332.964418,667 C398.86893,667.291401 460.358631,648.563955 512.263227,616.032622 L621.043133,651.433079 C640.71595,657.835999 659.262337,639.064797 652.544509,619.549748 L616.07869,513.591118 Z" id="Fill-1" fill="#4E5C93" mask="url(#mask-2)"></path>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" version="1.1" viewBox="0 0 1024 1024"><title>4.背景组件/灰色版/对话框</title><desc>Created with Sketch.</desc><defs><polygon id="path-1" points="0 0 669 0 669 667 0 667"/></defs><g id="4.背景组件/灰色版/对话框" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="分组" transform="translate(178.000000, 179.000000)"><mask id="mask-2" fill="#fff"><use xlink:href="#path-1"/></mask><path id="Fill-1" fill="#4E5C93" d="M616.07869,513.591118 C649.569606,461.647875 669,399.837719 669,333.50093 C669,148.842438 517.452329,-1.21153536 332.245509,0.00737383685 C149.476501,1.20961419 1.50874571,148.5549 0.011367109,330.709941 C-1.50168538,514.888162 148.22886,666.168337 332.964418,667 C398.86893,667.291401 460.358631,648.563955 512.263227,616.032622 L621.043133,651.433079 C640.71595,657.835999 659.262337,639.064797 652.544509,619.549748 L616.07869,513.591118 Z" mask="url(#mask-2)"/></g></g></svg>

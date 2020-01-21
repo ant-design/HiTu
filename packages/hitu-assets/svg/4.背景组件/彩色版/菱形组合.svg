@@ -1,14 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
-    <title>4.背景组件/彩色版/菱形组合</title>
-    <desc>Created with Sketch.</desc>
-    <g id="4.背景组件/彩色版/菱形组合" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="编组" transform="translate(55.000000, 94.000000)">
-            <polygon id="Stroke-1" stroke="#597EF7" stroke-width="14.85" stroke-linecap="round" points="738 276 461.4994 552 185 276 461.4994 0"></polygon>
-            <polygon id="Fill-4" fill="#597EF7" points="0 417.99951 110.499508 528 221 417.99951 110.499508 308"></polygon>
-            <polygon id="Fill-5" fill="#597EF7" points="694 417.99951 804.499508 528 915 417.99951 804.499508 308"></polygon>
-            <polygon id="Stroke-6" stroke="#597EF7" stroke-width="14.85" stroke-linecap="round" points="738 560 461.4994 836 185 560 461.4994 284"></polygon>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" version="1.1" viewBox="0 0 1024 1024"><title>4.背景组件/彩色版/菱形组合</title><desc>Created with Sketch.</desc><g id="4.背景组件/彩色版/菱形组合" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="编组" transform="translate(55.000000, 94.000000)"><polygon id="Stroke-1" stroke="#597EF7" stroke-linecap="round" stroke-width="14.85" points="738 276 461.499 552 185 276 461.499 0"/><polygon id="Fill-4" fill="#597EF7" points="0 418 110.5 528 221 418 110.5 308"/><polygon id="Fill-5" fill="#597EF7" points="694 418 804.5 528 915 418 804.5 308"/><polygon id="Stroke-6" stroke="#597EF7" stroke-linecap="round" stroke-width="14.85" points="738 560 461.499 836 185 560 461.499 284"/></g></g></svg>

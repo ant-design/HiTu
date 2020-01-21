@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
-    <title>4.背景组件/彩色版/点线三角体</title>
-    <desc>Created with Sketch.</desc>
-    <g id="4.背景组件/彩色版/点线三角体" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="编组" transform="translate(94.000000, 103.000000)">
-            <polygon id="路径-2" opacity="0.682407924" points="50 701.555579 468.4223 52 773 765"></polygon>
-            <polygon id="路径-3" stroke="#597EF7" stroke-width="11.88" stroke-linejoin="round" points="469 51 578.447249 523.41997 774 764"></polygon>
-            <polygon id="路径-4" stroke="#597EF7" stroke-width="16.335" stroke-linejoin="round" points="50 701 578 523.743196 468.645888 51"></polygon>
-            <polygon id="路径-5" stroke="#597EF7" stroke-width="11.88" stroke-linejoin="round" points="50 700.708541 773 764 577.71801 524"></polygon>
-            <circle id="椭圆形备份-12" fill="#597EF7" cx="469" cy="51" r="51"></circle>
-            <circle id="椭圆形备份-13" fill="#597EF7" cx="51" cy="698" r="51"></circle>
-            <circle id="椭圆形备份-14" fill="#597EF7" cx="786" cy="767" r="51"></circle>
-            <circle id="椭圆形备份-15" fill="#597EF7" cx="571" cy="524" r="51"></circle>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1024" height="1024" version="1.1" viewBox="0 0 1024 1024"><title>4.背景组件/彩色版/点线三角体</title><desc>Created with Sketch.</desc><g id="4.背景组件/彩色版/点线三角体" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="编组" transform="translate(94.000000, 103.000000)"><polygon id="路径-2" points="50 701.556 468.422 52 773 765" opacity=".682"/><polygon id="路径-3" stroke="#597EF7" stroke-linejoin="round" stroke-width="11.88" points="469 51 578.447 523.42 774 764"/><polygon id="路径-4" stroke="#597EF7" stroke-linejoin="round" stroke-width="16.335" points="50 701 578 523.743 468.646 51"/><polygon id="路径-5" stroke="#597EF7" stroke-linejoin="round" stroke-width="11.88" points="50 700.709 773 764 577.718 524"/><circle id="椭圆形备份-12" cx="469" cy="51" r="51" fill="#597EF7"/><circle id="椭圆形备份-13" cx="51" cy="698" r="51" fill="#597EF7"/><circle id="椭圆形备份-14" cx="786" cy="767" r="51" fill="#597EF7"/><circle id="椭圆形备份-15" cx="571" cy="524" r="51" fill="#597EF7"/></g></g></svg>
