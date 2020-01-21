@@ -19,7 +19,7 @@ function toModuleName(path) {
 
 function toEnglish(path) {
   let retPath = path;
-  const names = Object.keys(englishMapping);
+  const names = Object.keys(englishMapping).sort((a, b) => b.length - a.length);
   names.forEach(name => {
     retPath = retPath.replace(name, englishMapping[name]);
   });
