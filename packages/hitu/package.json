@@ -57,7 +57,6 @@
     "father": "^2.13.4",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.6",
-    "husky": "^3.0.9",
     "jquery": "^3.4.1",
     "jsdom": "^15.2.1",
     "less": "^3.10.3",
@@ -71,11 +70,6 @@
   "peerDependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "cnpm": {
     "mode": "npm"
