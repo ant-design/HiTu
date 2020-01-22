@@ -95,23 +95,37 @@ glob('svg/**/*.svg', {}, async function(er, files) {
     // #[\dA-F]{6}
 
     const fileContent = `
-    import * as React from 'react';
-    import { AssetComponent } from './interface';
+import * as React from 'react';
+import { AssetComponent } from './interface';
 
-    const SVG: AssetComponent = (props, ref) => (
+const HTML = \`${dangerHTML}\`;
+
+const SVG: AssetComponent = ({ theme = {}, ...props }, ref) => {
+  return React.useMemo(() => {
+    let __html = HTML;
+
+    Object.keys(theme).forEach(origin => {
+      __html = __html.replace(new RegExp(origin, 'g'), theme[origin]);
+    });
+
+    return (
       <svg
         ref={ref}
         viewBox="0 0 ${svgInfo.width} ${svgInfo.height}"
         {...props}
-        dangerouslySetInnerHTML={{ __html: \`${dangerHTML}\` }}
+        dangerouslySetInnerHTML={{
+          __html,
+        }}
       />
     );
+  }, [theme]);
+};
 
-    SVG.width = ${svgInfo.width};
-    SVG.height = ${svgInfo.height};
+SVG.width = ${svgInfo.width};
+SVG.height = ${svgInfo.height};
 
-    export default React.forwardRef(SVG);
-    `;
+export default React.forwardRef(SVG);
+    `.trim();
     fs.writeFileSync(tsxPath, fileContent, 'utf8');
   }
 
