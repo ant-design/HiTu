@@ -9,12 +9,12 @@ const englishMapping = require('./englishMapping');
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
 
-const LIB_PATH = 'lib';
+const SOURCE_PATH = 'tmp';
 
 var $ = require('jquery')(window);
 
 function toModuleName(path) {
-  return path.slice(`${LIB_PATH}/`.length).replace('.tsx', '');
+  return path.slice(`${SOURCE_PATH}/`.length).replace('.tsx', '');
 }
 
 function toEnglish(path) {
@@ -38,8 +38,8 @@ glob('svg/**/*.svg', {}, function(er, files) {
     chalk.yellow('assets'),
   );
 
-  fs.removeSync(LIB_PATH);
-  fs.ensureDirSync(LIB_PATH);
+  fs.removeSync(SOURCE_PATH);
+  fs.ensureDirSync(SOURCE_PATH);
 
   const tsxList = new Set();
 
@@ -48,7 +48,7 @@ glob('svg/**/*.svg', {}, function(er, files) {
   files.forEach(file => {
     // ==================== Path name ====================
     let tsxPath = path.join(
-      LIB_PATH,
+      SOURCE_PATH,
       file
         .replace('.svg', '_tsx')
         .replace('svg/', '')
@@ -127,8 +127,8 @@ glob('svg/**/*.svg', {}, function(er, files) {
   tsxList.forEach(path => {
     indexText += `export { default as ${toModuleName(
       path,
-    )} } from '${path.replace(LIB_PATH, '.').replace('.tsx', '')}'\n`;
+    )} } from '${path.replace(SOURCE_PATH, '.').replace('.tsx', '')}'\n`;
   });
 
-  fs.writeFileSync(path.join(LIB_PATH, 'index.tsx'), indexText, 'utf8');
+  fs.writeFileSync(path.join(SOURCE_PATH, 'index.tsx'), indexText, 'utf8');
 });

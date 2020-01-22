@@ -1,18 +1,24 @@
 {
   "name": "@ant-design/hitu-assets",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha.0",
   "description": "",
-  "main": "index.js",
+  "main": "./lib/index",
+  "module": "./es/index",
   "scripts": {
-    "compile": "node ./scripts/convert.js"
+    "compile": "node ./scripts/convert.js",
+    "prepublishOnly": "npm run compile"
   },
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "react": "*"
+  },
   "devDependencies": {
     "chalk": "^3.0.0",
     "fs-extra": "^8.1.0",
     "glob": "^7.1.6",
     "jquery": "^3.4.1",
-    "jsdom": "^16.0.1"
+    "jsdom": "^16.0.1",
+    "react": "^16.9.0"
   }
 }
