@@ -24,6 +24,10 @@ function toEnglish(path) {
     retPath = retPath.replace(name, englishMapping[name]);
   });
 
+  if (retPath.replace(/[a-zA-Z\d_\/\\\.]+/g, '').trim().length) {
+    throw new Error(`Still exist uncovered text ${retPath}`);
+  }
+
   return retPath;
 }
 
