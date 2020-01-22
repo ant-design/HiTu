@@ -3,13 +3,25 @@ const fs = require('fs-extra');
 const path = require('path');
 const jsdom = require('jsdom');
 const chalk = require('chalk');
+const SVGO = require('svgo');
+
+const svgo = new SVGO({
+  plugins: [
+    {
+      removeXMLNS: true,
+    },
+    {
+      prefixIds: true,
+    },
+  ],
+});
 
 const englishMapping = require('./englishMapping');
 
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
 
-const SOURCE_PATH = 'tmp';
+const SOURCE_PATH = 'src';
 
 var $ = require('jquery')(window);
 
@@ -31,7 +43,7 @@ function toEnglish(path) {
   return retPath;
 }
 
-glob('svg/**/*.svg', {}, function(er, files) {
+glob('svg/**/*.svg', {}, async function(er, files) {
   console.log(
     chalk.yellow('Find'),
     chalk.green(files.length),
@@ -40,12 +52,16 @@ glob('svg/**/*.svg', {}, function(er, files) {
 
   fs.removeSync(SOURCE_PATH);
   fs.ensureDirSync(SOURCE_PATH);
+  fs.copySync('template/interface.ts', path.join(SOURCE_PATH, 'interface.ts'));
 
   const tsxList = new Set();
 
-  // files = files.filter(f => f.includes('盆栽')).slice(0, 1);
+  for (let i = 0; i < files.length; i += 1) {
+    const file = files[i];
 
-  files.forEach(file => {
+    // if (!file.includes('盆栽')) {
+    //   continue;
+    // }
     // ==================== Path name ====================
     let tsxPath = path.join(
       SOURCE_PATH,
@@ -67,63 +83,40 @@ glob('svg/**/*.svg', {}, function(er, files) {
     console.log('Convert:', file, '->', tsxPath);
 
     // =================== Module name ===================
-    const moduleName = toModuleName(tsxPath);
+    // const moduleName = toModuleName(tsxPath);
 
-    let text = fs.readFileSync(file, 'utf8').replace(/\<\?[^>]*>/, '');
+    let text = fs.readFileSync(file, 'utf8');
+    const optimizeResult = await svgo.optimize(text, { path: tsxPath });
+    const svgInfo = optimizeResult.info;
+    text = optimizeResult.data;
 
-    // Replace mask id
-    const ele = $(`<div>${text}</div>`);
-    ele.find('mask').each(function() {
-      const id = $(this).attr('id');
-      $(this).attr('id', `${moduleName}-${id}`);
-    });
+    const dangerHTML = $(text).html();
 
-    ele.find('[mask]').each(function() {
-      const maskIdMatch = ($(this).attr('mask') || '').match(/^url\(#(.*)\)$/);
-      if (maskIdMatch) {
-        $(this).attr('mask', `url(#${moduleName}-${maskIdMatch[1]})`);
-      }
-    });
-
-    // Replace defs id
-    ele
-      .find('defs')
-      .children()
-      .each(function() {
-        const id = $(this).attr('id');
-        $(this).attr('id', `${moduleName}-${id}`);
-      });
-
-    ele.find('[xlink\\:href]').each(function() {
-      const id = $(this).attr('xlink:href');
-      $(this).attr('xlink:href', `#${moduleName}-${id.slice(1)}`);
-    });
-
-    const viewBoxMatch = text.match(/viewBox="([^"]+)"/);
-    let additionalInfo;
-    if (viewBoxMatch) {
-      const values = viewBoxMatch[1].trim().split(/\s+/);
-      additionalInfo = `
-      SVG.width = ${values[2]};
-      SVG.height = ${values[3]};
-      `;
-    }
+    // #[\dA-F]{6}
 
     const fileContent = `
     import * as React from 'react';
-    const SVG = () => (
-      <svg dangerouslySetInnerHTML={{ __html: \`${ele.html()}\` }} />
-    )
+    import { AssetComponent } from './interface';
 
-    ${additionalInfo}
+    const SVG: AssetComponent = (props, ref) => (
+      <svg
+        ref={ref}
+        viewBox="0 0 ${svgInfo.width} ${svgInfo.height}"
+        {...props}
+        dangerouslySetInnerHTML={{ __html: \`${dangerHTML}\` }}
+      />
+    );
 
-    export default SVG;
+    SVG.width = ${svgInfo.width};
+    SVG.height = ${svgInfo.height};
+
+    export default React.forwardRef(SVG);
     `;
     fs.writeFileSync(tsxPath, fileContent, 'utf8');
-  });
+  }
 
   // ==================== Entry Index ====================
-  let indexText = '';
+  let indexText = "export { Theme, AssetProps } from './interface';\n\n";
   tsxList.forEach(path => {
     indexText += `export { default as ${toModuleName(
       path,
