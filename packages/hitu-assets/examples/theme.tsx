@@ -8,11 +8,38 @@ function randomColor() {
   return `#${hex}`;
 }
 
+const Person = AllAssets.Character_BusinessDevelopment_GetUp_Greet;
+const colors = new Set<string>();
+Person.__RAW__.match(/#[\da-fA-F]{3,6}/g).forEach(color => {
+  colors.add(color);
+});
+
 export default () => {
   const [theme, setTheme] = React.useState<AllAssets.Theme>({});
 
   return (
     <div style={{ background: '#FFF' }}>
+      <button
+        type="button"
+        onClick={() => {
+          const newTheme = {
+            '#253369': randomColor(),
+            '#389E0D': randomColor(),
+            '#7CB305': randomColor(),
+            '#BAE637': randomColor(),
+            '#FFF': randomColor(),
+          };
+
+          colors.forEach(color => {
+            newTheme[color] = randomColor();
+          });
+
+          setTheme(newTheme);
+        }}
+      >
+        Random Color
+      </button>
+      <br />
       {Object.keys(AllAssets)
         .filter(name => name.includes('Primary') && name.includes('Plant'))
         .map(name => {
@@ -23,20 +50,7 @@ export default () => {
             <Component key={name} width={200} height={200} theme={theme} />
           );
         })}
-      <br />
-      <button
-        type="button"
-        onClick={() => {
-          setTheme({
-            '#253369': randomColor(),
-            '#389E0D': randomColor(),
-            '#7CB305': randomColor(),
-            '#FFF': randomColor(),
-          });
-        }}
-      >
-        Random Color
-      </button>
+      <Person width={200} height={400} theme={theme} />
     </div>
   );
 };

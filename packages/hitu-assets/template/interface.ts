@@ -3,11 +3,12 @@ import * as React from 'react';
 export interface Theme {}
 
 export interface AssetProps extends React.SVGAttributes<SVGElement> {
-  theme: Theme;
+  theme?: Theme;
 }
 
 export interface AssetComponent
-  extends React.RefForwardingComponent<SVGSVGElement, AssetProps> {
+  extends React.ForwardRefExoticComponent<AssetProps> {
+  __RAW__: string;
   width: number;
   height: number;
 }

@@ -95,12 +95,12 @@ glob('svg/**/*.svg', {}, async function(er, files) {
 
     const fileContent = `
 import * as React from 'react';
-import { AssetComponent } from './interface';
+import { AssetComponent, AssetProps } from './interface';
 import { replaceTheme } from './util';
 
 const HTML = \`${dangerHTML}\`;
 
-const SVG: AssetComponent = ({ theme, ...props }, ref) => {
+const Asset: React.RefForwardingComponent<SVGSVGElement, AssetProps> = ({ theme, ...props }, ref) => {
   return React.useMemo(() => {
     const __html = replaceTheme(HTML, theme);
 
@@ -117,14 +117,17 @@ const SVG: AssetComponent = ({ theme, ...props }, ref) => {
   }, [theme]);
 };
 
-SVG.displayName = '${tsxPath
+Asset.displayName = '${tsxPath
       .replace(SOURCE_PATH, '')
       .replace(/\.tsx$/, '')
       .slice(1)}';
-SVG.width = ${svgInfo.width};
-SVG.height = ${svgInfo.height};
 
-export default React.forwardRef(SVG);
+const RefAsset = React.forwardRef(Asset) as AssetComponent;
+RefAsset.__RAW__ = HTML;
+RefAsset.width = ${svgInfo.width};
+RefAsset.height = ${svgInfo.height};
+
+export default RefAsset;
     `.trim();
     fs.writeFileSync(tsxPath, fileContent, 'utf8');
   }
