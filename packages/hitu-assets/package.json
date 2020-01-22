@@ -22,7 +22,7 @@
     "convert": "node ./scripts/convert.js",
     "father:build": "father build",
     "compile": "npm run convert && npm run father:build && rm -rf src",
-    "prepublishOnly": "npm run compile && np --yolo --no-publish"
+    "prepublishOnly": "npm run compile"
   },
   "peerDependencies": {
     "react": "^16.9.0"
@@ -39,7 +39,6 @@
     "glob": "^7.1.6",
     "jquery": "^3.4.1",
     "jsdom": "^16.0.1",
-    "np": "^5.2.1",
     "react": "^16.9.0",
     "svgo": "^1.3.2"
   }
