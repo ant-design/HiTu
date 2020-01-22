@@ -25,7 +25,10 @@
     "prepublishOnly": "npm run compile && np --yolo --no-publish"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "^16.9.0"
+  },
+  "dependencies": {
+    "rc-util": "^4.19.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.18",

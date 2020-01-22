@@ -53,6 +53,7 @@ glob('svg/**/*.svg', {}, async function(er, files) {
   fs.removeSync(SOURCE_PATH);
   fs.ensureDirSync(SOURCE_PATH);
   fs.copySync('template/interface.ts', path.join(SOURCE_PATH, 'interface.ts'));
+  fs.copySync('template/util.ts', path.join(SOURCE_PATH, 'util.ts'));
 
   const tsxList = new Set();
 
@@ -92,21 +93,16 @@ glob('svg/**/*.svg', {}, async function(er, files) {
 
     const dangerHTML = $(text).html();
 
-    // #[\dA-F]{6}
-
     const fileContent = `
 import * as React from 'react';
 import { AssetComponent } from './interface';
+import { replaceTheme } from './util';
 
 const HTML = \`${dangerHTML}\`;
 
-const SVG: AssetComponent = ({ theme = {}, ...props }, ref) => {
+const SVG: AssetComponent = ({ theme, ...props }, ref) => {
   return React.useMemo(() => {
-    let __html = HTML;
-
-    Object.keys(theme).forEach(origin => {
-      __html = __html.replace(new RegExp(origin, 'g'), theme[origin]);
-    });
+    const __html = replaceTheme(HTML, theme);
 
     return (
       <svg
@@ -121,6 +117,10 @@ const SVG: AssetComponent = ({ theme = {}, ...props }, ref) => {
   }, [theme]);
 };
 
+SVG.displayName = '${tsxPath
+      .replace(SOURCE_PATH, '')
+      .replace(/\.tsx$/, '')
+      .slice(1)}';
 SVG.width = ${svgInfo.width};
 SVG.height = ${svgInfo.height};
 
