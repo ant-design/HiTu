@@ -108,6 +108,8 @@ const Asset: React.RefForwardingComponent<SVGSVGElement, AssetProps> = ({ theme,
       <svg
         ref={ref}
         viewBox="0 0 ${svgInfo.width} ${svgInfo.height}"
+        width="${svgInfo.width}"
+        height="${svgInfo.height}"
         {...props}
         dangerouslySetInnerHTML={{
           __html,
