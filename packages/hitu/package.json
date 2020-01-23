@@ -43,6 +43,7 @@
     "classnames": "^2.2.1"
   },
   "devDependencies": {
+    "@ant-design/hitu-assets": "^0.0.0-alpha.0",
     "@types/classnames": "^2.2.9",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",

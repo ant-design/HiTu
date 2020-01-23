@@ -6,24 +6,21 @@ import { randomName, getComponent } from './utils/randomUtil';
 import { HiTuRefObject } from '../src/HiTu';
 import './thinking.less';
 
-const { Title, Paragraph } = Typography;
-
 export default () => {
   const hiTuRef = React.useRef<HiTuRefObject>(null);
 
-  const [_, forceUpdate] = React.useState<any>({});
   const [showTitle, setShowTitle] = React.useState(false);
 
   const [personName, setPersonName] = React.useState(() =>
-    randomName(['摸头', '思考']),
+    randomName(['TouchHead', 'Thinking']),
   );
   const [clockName, setClockName] = React.useState(() =>
-    randomName(['通用组件_彩色版', '!图表', '!盆栽']),
+    randomName(['Common_Primary', '!Chart', '!Plant']),
   );
-  const [chartName, setChartName] = React.useState(() => randomName(['图表']));
-  const [plantName, setPlantName] = React.useState(() => randomName(['盆栽']));
+  const [chartName, setChartName] = React.useState(() => randomName(['Chart']));
+  const [plantName, setPlantName] = React.useState(() => randomName(['Plant']));
   const [plant2Name, setPlant2Name] = React.useState(() =>
-    randomName(['盆栽']),
+    randomName(['Plant']),
   );
   const Person = getComponent(personName);
   const Clock = getComponent(clockName);
@@ -38,13 +35,13 @@ export default () => {
       <div className="operation-group">
         <Button
           onClick={() => {
-            setPersonName(randomName(['摸头', '思考'], personName));
+            setPersonName(randomName(['TouchHead', 'Thinking'], personName));
             setClockName(
-              randomName(['通用组件_彩色版', '!图表', '!盆栽'], clockName),
+              randomName(['Common_Primary', '!Chart', '!Plant'], clockName),
             );
-            setChartName(randomName(['图表'], clockName));
-            setPlantName(randomName(['盆栽'], plantName));
-            setPlant2Name(randomName(['盆栽'], plant2Name));
+            setChartName(randomName(['Chart'], clockName));
+            setPlantName(randomName(['Plant'], plantName));
+            setPlant2Name(randomName(['Plant'], plant2Name));
           }}
         >
           Random
@@ -67,8 +64,6 @@ export default () => {
         >
           Coder
         </Button>
-
-        {/* {hiTuRef.current?.getFramerInfo().frame} */}
       </div>
       <HiTu
         // debug
@@ -80,10 +75,6 @@ export default () => {
         ref={hiTuRef}
         onFrame={frame => {
           console.log('>>>', frame);
-          // if (frame > 100 && hiTuRef.current) {
-          //   hiTuRef.current.triggerMotion(false);
-          // }
-          // forceUpdate({});
         }}
         defaultPlay={false}
         shapes={[

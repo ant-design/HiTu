@@ -1,4 +1,5 @@
-import * as allImages from '../../output';
+/* eslint-disable import/no-extraneous-dependencies */
+import * as allImages from '@ant-design/hitu-assets';
 
 const names = Object.keys(allImages);
 export function randomName(types: string[], prevName?: string): string {
