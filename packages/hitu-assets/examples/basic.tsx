@@ -10,6 +10,7 @@ export default () => {
           const Component = AllAssets[name];
           return <Component key={name} width={200} height={200} />;
         })}
+        <AllAssets.Character_BusinessDevelopment_Running_Greet />
     </div>
   );
 };

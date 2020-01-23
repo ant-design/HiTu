@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/hitu-assets",
-  "version": "0.0.0-alpha.0",
+  "version": "0.0.0-alpha.1",
   "description": "HiTu design assets",
   "main": "./lib/index",
   "module": "./es/index",
