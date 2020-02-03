@@ -19,17 +19,18 @@ export default function useFramer(
     onFrame?: (frame: number) => void;
     loop?: boolean;
   },
-): [
-  number,
-  (start?: boolean) => void,
-  (shapeInfo: ShapeInfo) => Required<Info>,
-  () => FramerInfo,
-] {
+): {
+  frame: number;
+  triggerMotion: (start?: boolean) => void;
+  getFrameInfo: (shapeInfo: ShapeInfo) => Required<Info>;
+  getFramerInfo: () => FramerInfo;
+  setFrame: (frame: number) => void;
+} {
   // const { defaultPlay, frameRate = 60, onPlay, onFrame, loop } = config || {};
   const configRef = React.useRef(config || {});
   configRef.current = config || {};
 
-  const [_, forceUpdate] = React.useState<object>({});
+  const [, forceUpdate] = React.useState<object>({});
   const frameRef = React.useRef(configRef.current.defaultFrame || 0);
   const frameIdRef = React.useRef<number | null>(null);
   const triggerRef = React.useRef(false);
@@ -227,5 +228,11 @@ export default function useFramer(
     return cancelMotion;
   }, []);
 
-  return [frameRef.current, triggerMotion, getFrameInfo, getFramerInfo];
+  return {
+    frame: frameRef.current,
+    triggerMotion,
+    getFrameInfo,
+    getFramerInfo,
+    setFrame,
+  };
 }

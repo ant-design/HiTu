@@ -12,6 +12,7 @@ import {
 export interface HiTuRefObject {
   triggerMotion: (play?: boolean) => void;
   getFramerInfo: () => FramerInfo;
+  setFrame: (frame: number) => void;
 }
 
 export interface HiTuProps {
@@ -48,7 +49,7 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
   },
   ref,
 ) => {
-  const [frame, triggerMotion, getFrameInfo, getFramerInfo] = useFramer(
+  const { triggerMotion, getFrameInfo, getFramerInfo, setFrame } = useFramer(
     frames,
     {
       defaultPlay,
@@ -62,6 +63,7 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
   React.useImperativeHandle(ref, () => ({
     triggerMotion,
     getFramerInfo,
+    setFrame,
   }));
 
   return (
