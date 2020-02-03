@@ -20,6 +20,14 @@ export interface FrameInfo extends Info {
 
 export interface Shape extends Info {
   type: typeof TYPE_SHAPE;
+  /** Alias name for editor */
+  name?: string;
   source: React.ComponentType<any>;
   frames?: FrameInfo[];
 }
+
+export type ShapeRender = (
+  element: React.ReactElement,
+  shape: Shape,
+  frameInfo: Required<Info>,
+) => React.ReactNode;

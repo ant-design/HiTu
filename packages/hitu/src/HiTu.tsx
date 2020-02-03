@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Shape, TYPE_SHAPE } from './interface';
+import { Shape, TYPE_SHAPE, ShapeRender } from './interface';
 import useFramer, { FramerInfo } from './hooks/useFramer';
 import {
   EASE,
@@ -25,6 +25,7 @@ export interface HiTuProps {
   defaultPlay?: boolean;
   defaultFrame?: number;
   loop?: boolean;
+  shapeRender?: ShapeRender;
   onPlay?: (play: boolean) => void;
   onFrame?: (frame: number) => void;
 }
@@ -41,6 +42,7 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
     defaultPlay,
     defaultFrame,
     loop,
+    shapeRender,
     onPlay,
     onFrame,
   },
@@ -74,8 +76,13 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
           fill="transparent"
         />
       )}
-      {shapes.map(({ source: Source, ...restShapeInfo }, index) => {
-        const { width = 0, height = 0 } = Source as any;
+      {shapes.map((shape, index) => {
+        const { source: Source, ...restShapeInfo } = shape;
+        const {
+          width: shapeWidth = 0,
+          height: shapeHeight = 0,
+        } = Source as any;
+        const frameInfo = getFrameInfo(restShapeInfo);
         const {
           x,
           y,
@@ -85,27 +92,30 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
           scaleY,
           rotate,
           opacity,
-        } = getFrameInfo(restShapeInfo);
-        const centerX = width * originX;
-        const centerY = height * originY;
+        } = frameInfo;
+        const centerX = shapeWidth * originX;
+        const centerY = shapeHeight * originY;
 
-        return (
+        const shapeEle = (
+          // Position & Opacity
           <g
             key={index}
             transform={`translate(${x - centerX}, ${y - centerY})`}
             opacity={opacity}
           >
+            {/* Center scale */}
             <g
               transform={`matrix(${scaleX}, 0, 0, ${scaleY}, ${centerX -
                 scaleX * centerX}, ${centerY - scaleY * centerY})`}
             >
+              {/* Center Rotate */}
               <g transform={`rotate(${rotate}, ${centerX}, ${centerY})`}>
                 {debug && (
                   <rect
                     x="0"
                     y="0"
-                    width={width}
-                    height={height}
+                    width={shapeWidth}
+                    height={shapeHeight}
                     stroke="red"
                     fill="transparent"
                   />
@@ -115,6 +125,12 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
             </g>
           </g>
         );
+
+        if (shapeRender) {
+          return shapeRender(shapeEle, shape, frameInfo);
+        }
+
+        return shapeEle;
       })}
     </svg>
   );
