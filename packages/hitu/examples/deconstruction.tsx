@@ -16,7 +16,7 @@ const Demo = () => {
         width={1000}
         height={500}
         style={{ width: 1000, height: 500, border: '1px solid orange' }}
-        frames={60}
+        // frames={60}
         shapes={[
           {
             type: 'svgText',
@@ -25,7 +25,23 @@ const Demo = () => {
             scaleY: 500 / 1024,
             originX: 0,
             originY: 0,
-            frames: [],
+            chips: [
+              {
+                path: [0],
+                frames: [
+                  {
+                    frame: 0,
+                    x: 100,
+                    y: 1000,
+                  },
+                  {
+                    frame: 60,
+                    x: 0,
+                    y: 0,
+                  },
+                ],
+              },
+            ],
           },
         ]}
       />

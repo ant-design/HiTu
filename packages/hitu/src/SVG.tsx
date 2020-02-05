@@ -150,8 +150,7 @@ SVG.parse = (
       height={svgHeight}
       tagName="svg"
     >
-      <defs>{defElements}</defs>
-      {dig(svgChildren)}
+      {[<defs key="defs">{defElements}</defs>, ...dig(svgChildren)]}
     </SVG>
   );
 };

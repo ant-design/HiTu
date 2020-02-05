@@ -22,7 +22,6 @@ export interface FrameInfo extends Info {
 interface BaseShape extends Info {
   /** Alias name for editor */
   name?: string;
-
   frames?: FrameInfo[];
 }
 
@@ -33,6 +32,7 @@ interface ShapeShape extends BaseShape {
 interface SvgTextShape extends BaseShape {
   type: typeof TYPE_SVG_TEXT;
   source: string;
+  chips?: { path: number[]; frames?: FrameInfo[] }[];
 }
 
 export type Shape = ShapeShape | SvgTextShape;

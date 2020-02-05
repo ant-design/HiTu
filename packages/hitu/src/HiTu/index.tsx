@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Shape, TYPE_SHAPE, ShapeRender } from './interface';
-import SVG from './SVG';
-import useFramer, { FramerInfo } from './hooks/useFramer';
+import { Shape, TYPE_SHAPE, ShapeRender } from '../interface';
+import SVG from '../SVG';
+import useFramer, { FramerInfo } from '../hooks/useFramer';
 import {
   EASE,
   CUBIC_NUMBER,
   EASE_IN,
   EASE_IN_OUT,
   EASE_OUT,
-} from './utils/cubicUtil';
+} from '../utils/cubicUtil';
+import Chip from './Chip';
 
 export interface HiTuRefObject {
   triggerMotion: (play?: boolean) => void;
@@ -85,16 +86,6 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
         let shapeHeight: number = 0;
 
         const frameInfo = getFrameInfo(restShapeInfo);
-        const {
-          x,
-          y,
-          originX,
-          originY,
-          scaleX,
-          scaleY,
-          rotate,
-          opacity,
-        } = frameInfo;
 
         let shapeEle: React.ReactElement | null = null;
         switch (type) {
@@ -104,42 +95,19 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
             break;
 
           case 'svgText':
+            // TODO: Performance improvement
             shapeEle = SVG.parse(Source as string);
             ({ width: shapeWidth, height: shapeHeight } = shapeEle.props);
+
+            console.log('->>', shapeEle);
             break;
         }
 
-        const centerX = shapeWidth * originX;
-        const centerY = shapeHeight * originY;
-
         const shapeHolder = (
           // Position & Opacity
-          <g
-            key={index}
-            transform={`translate(${x - centerX}, ${y - centerY})`}
-            opacity={opacity}
-          >
-            {/* Center scale */}
-            <g
-              transform={`matrix(${scaleX}, 0, 0, ${scaleY}, ${centerX -
-                scaleX * centerX}, ${centerY - scaleY * centerY})`}
-            >
-              {/* Center Rotate */}
-              <g transform={`rotate(${rotate}, ${centerX}, ${centerY})`}>
-                {debug && (
-                  <rect
-                    x="0"
-                    y="0"
-                    width={shapeWidth}
-                    height={shapeHeight}
-                    stroke="red"
-                    fill="transparent"
-                  />
-                )}
-                {shapeEle}
-              </g>
-            </g>
-          </g>
+          <Chip {...frameInfo} width={shapeWidth} height={shapeHeight}>
+            {shapeEle}
+          </Chip>
         );
 
         if (shapeRender) {
