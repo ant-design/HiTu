@@ -9,45 +9,19 @@ import SVG from '../src/SVG';
 const debug = false;
 
 const Demo = () => {
-  const plant = React.useMemo(() => {
-    const svg = SVG.parse(PLANT_SVG, { debug });
-    return React.cloneElement(svg, {
-      style: {
-        border: '1px solid red',
-      },
-    });
-  }, [PLANT_SVG]);
-
-  const people = React.useMemo(() => {
-    const svg = SVG.parse(PEOPLE_SVG, { debug });
-    return React.cloneElement(svg, {
-      style: {
-        border: '1px solid red',
-      },
-    });
-  }, [PEOPLE_SVG]);
-
-  const designer = React.useMemo(() => {
-    const svg = SVG.parse(
-      `<svg>${Character_Designer_Walking_Working.__RAW__}</svg>`,
-      {
-        debug,
-        width: Character_Designer_Walking_Working.width,
-        height: Character_Designer_Walking_Working.height,
-      },
-    );
-    return React.cloneElement(svg, {
-      style: {
-        border: '1px solid red',
-      },
-    });
-  }, [Character_Designer_Walking_Working.__RAW__]);
-
   return (
     <div>
-      {plant}
-      {people}
-      {designer}
+      <HiTu
+        width={1000}
+        height={500}
+        style={{ width: 1000, height: 500 }}
+        shapes={[
+          {
+            type: 'svgText',
+            source: PLANT_SVG,
+          },
+        ]}
+      />
     </div>
   );
 };
