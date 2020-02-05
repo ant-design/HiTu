@@ -14,6 +14,10 @@ function SVG({
   return <Component {...rest} />;
 }
 
+function toNumber(unit: string): number {
+  return Number(unit.replace(/[^\d\.]/g, '')) || 0;
+}
+
 export interface ParseOption {
   debug?: boolean;
   name?: string;
@@ -134,12 +138,16 @@ SVG.parse = (
     (window as any).HITU_SVG_DEBUG = svg;
   }
 
+  const svgAttrs = getAttributes(svg);
+  const svgWidth: number = width || toNumber(svgAttrs.width);
+  const svgHeight: number = height || toNumber(svgAttrs.height);
+
   return (
     <SVG
-      width={width}
-      height={height}
-      viewBox={`0 0 ${width} ${height}`}
-      {...getAttributes(svg)}
+      viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+      {...svgAttrs}
+      width={svgWidth}
+      height={svgHeight}
       tagName="svg"
     >
       <defs>{defElements}</defs>

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Shape, TYPE_SHAPE, ShapeRender } from './interface';
+import SVG from './SVG';
 import useFramer, { FramerInfo } from './hooks/useFramer';
 import {
   EASE,
@@ -79,11 +80,10 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
         />
       )}
       {shapes.map((shape, index) => {
-        const { source: Source, ...restShapeInfo } = shape;
-        const {
-          width: shapeWidth = 0,
-          height: shapeHeight = 0,
-        } = Source as any;
+        const { type, source: Source, ...restShapeInfo } = shape;
+        let shapeWidth: number = 0;
+        let shapeHeight: number = 0;
+
         const frameInfo = getFrameInfo(restShapeInfo);
         const {
           x,
@@ -95,10 +95,24 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
           rotate,
           opacity,
         } = frameInfo;
+
+        let shapeEle: React.ReactElement | null = null;
+        switch (type) {
+          case 'shape':
+            ({ width: shapeWidth, height: shapeHeight } = Source as any);
+            shapeEle = <Source />;
+            break;
+
+          case 'svgText':
+            shapeEle = SVG.parse(Source as string);
+            ({ width: shapeWidth, height: shapeHeight } = shapeEle.props);
+            break;
+        }
+
         const centerX = shapeWidth * originX;
         const centerY = shapeHeight * originY;
 
-        const shapeEle = (
+        const shapeHolder = (
           // Position & Opacity
           <g
             key={index}
@@ -122,17 +136,17 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
                     fill="transparent"
                   />
                 )}
-                <Source />
+                {shapeEle}
               </g>
             </g>
           </g>
         );
 
         if (shapeRender) {
-          return shapeRender(shapeEle, shape, frameInfo);
+          return shapeRender(shapeHolder, shape, frameInfo);
         }
 
-        return shapeEle;
+        return shapeHolder;
       })}
     </svg>
   );
