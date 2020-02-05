@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Shape, TYPE_SHAPE, ShapeRender } from '../interface';
+import { Shape, TYPE_SHAPE, ShapeRender, SvgTextShape } from '../interface';
 import SVG from '../SVG';
 import useFramer, { FramerInfo } from '../hooks/useFramer';
 import {
@@ -51,16 +51,19 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
   },
   ref,
 ) => {
-  const { triggerMotion, getFrameInfo, getFramerInfo, setFrame } = useFramer(
-    frames,
-    {
-      defaultPlay,
-      defaultFrame,
-      onPlay,
-      onFrame,
-      loop,
-    },
-  );
+  const {
+    frame,
+    triggerMotion,
+    getFrameInfo,
+    getFramerInfo,
+    setFrame,
+  } = useFramer(frames, {
+    defaultPlay,
+    defaultFrame,
+    onPlay,
+    onFrame,
+    loop,
+  });
 
   React.useImperativeHandle(ref, () => ({
     triggerMotion,
@@ -91,30 +94,44 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
         switch (type) {
           case 'shape':
             ({ width: shapeWidth, height: shapeHeight } = Source as any);
-            shapeEle = <Source />;
+            shapeEle = (
+              <Chip
+                frame={frame}
+                key={index}
+                {...frameInfo}
+                width={shapeWidth}
+                height={shapeHeight}
+              >
+                <Source />
+              </Chip>
+            );
             break;
 
           case 'svgText':
             // TODO: Performance improvement
-            shapeEle = SVG.parse(Source as string);
-            ({ width: shapeWidth, height: shapeHeight } = shapeEle.props);
+            const chipEle = SVG.parse(Source as string);
+            ({ width: shapeWidth, height: shapeHeight } = chipEle.props);
 
-            console.log('->>', shapeEle);
+            shapeEle = (
+              <Chip
+                frame={frame}
+                key={index}
+                {...frameInfo}
+                width={shapeWidth}
+                height={shapeHeight}
+                chips={(shape as SvgTextShape).chips}
+              >
+                {chipEle}
+              </Chip>
+            );
             break;
         }
 
-        const shapeHolder = (
-          // Position & Opacity
-          <Chip {...frameInfo} width={shapeWidth} height={shapeHeight}>
-            {shapeEle}
-          </Chip>
-        );
-
         if (shapeRender) {
-          return shapeRender(shapeHolder, shape, frameInfo);
+          return shapeRender(shapeEle, shape, frameInfo);
         }
 
-        return shapeHolder;
+        return shapeEle;
       })}
     </svg>
   );

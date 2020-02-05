@@ -25,14 +25,20 @@ interface BaseShape extends Info {
   frames?: FrameInfo[];
 }
 
-interface ShapeShape extends BaseShape {
+export interface ShapeShape extends BaseShape {
   type: typeof TYPE_SHAPE;
   source: React.ComponentType<any>;
 }
-interface SvgTextShape extends BaseShape {
+
+export interface Chip {
+  path: number[];
+  frames?: FrameInfo[];
+}
+
+export interface SvgTextShape extends BaseShape {
   type: typeof TYPE_SVG_TEXT;
   source: string;
-  chips?: { path: number[]; frames?: FrameInfo[] }[];
+  chips?: Chip[];
 }
 
 export type Shape = ShapeShape | SvgTextShape;

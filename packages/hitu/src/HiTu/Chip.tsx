@@ -1,10 +1,16 @@
 import * as React from 'react';
+import toArray from 'rc-util/lib/Children/toArray';
+import warning from 'rc-util/lib/warning';
 import { Info } from '../interface';
+import SVGContext, { ChipManger } from '../SVG/context';
 
 export interface ChipProps extends Required<Info> {
   debug?: boolean;
+  frame: number;
   width: number;
   height: number;
+  children: React.ReactElement;
+  chips?: { path: number[] }[];
 }
 
 const Chip: React.FC<ChipProps> = ({
@@ -19,37 +25,46 @@ const Chip: React.FC<ChipProps> = ({
   opacity,
   scaleX,
   scaleY,
+  chips,
   children,
+  ...rest
 }) => {
   const centerX = width * originX;
   const centerY = height * originY;
 
+  const chipManger = new ChipManger(chips);
+  chipManger.setFrame(0);
+
+
   return (
-    <g
-      transform={`translate(${x - centerX}, ${y - centerY})`}
-      opacity={opacity}
-    >
-      {/* Center scale */}
+    <SVGContext.Provider value={{ chipManger }}>
       <g
-        transform={`matrix(${scaleX}, 0, 0, ${scaleY}, ${centerX -
-          scaleX * centerX}, ${centerY - scaleY * centerY})`}
+        transform={`translate(${x - centerX}, ${y - centerY})`}
+        opacity={opacity}
+        {...rest}
       >
-        {/* Center Rotate */}
-        <g transform={`rotate(${rotate}, ${centerX}, ${centerY})`}>
-          {debug && (
-            <rect
-              x="0"
-              y="0"
-              width={width}
-              height={height}
-              stroke="red"
-              fill="transparent"
-            />
-          )}
-          {children}
+        {/* Center scale */}
+        <g
+          transform={`matrix(${scaleX}, 0, 0, ${scaleY}, ${centerX -
+            scaleX * centerX}, ${centerY - scaleY * centerY})`}
+        >
+          {/* Center Rotate */}
+          <g transform={`rotate(${rotate}, ${centerX}, ${centerY})`}>
+            {debug && (
+              <rect
+                x="0"
+                y="0"
+                width={width}
+                height={height}
+                stroke="red"
+                fill="transparent"
+              />
+            )}
+            {children}
+          </g>
         </g>
       </g>
-    </g>
+    </SVGContext.Provider>
   );
 };
 

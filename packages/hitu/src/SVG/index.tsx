@@ -1,16 +1,30 @@
 import * as React from 'react';
+import SVGContext from './context';
 
 const DEFINE = 'defs';
 const OMIT_SVG_ELEMENTS = ['title', 'desc', 'defs'];
 
 export interface SVGProps extends React.SVGAttributes<any> {
   tagName: string;
+  path?: number[];
 }
 
 function SVG({
   tagName: Component,
+  path,
   ...rest
 }: SVGProps): React.ReactElement | null {
+  const { chipManger } = React.useContext(SVGContext);
+  const chip = chipManger.getChip(path);
+
+  // Only create prop object when chip exist to save perf
+  if (chip) {
+    const props = {
+      transform: 'translate(-100px, 100px)'
+    };
+    return <Component {...rest} {...props} />;
+  }
+
   return <Component {...rest} />;
 }
 
@@ -102,7 +116,7 @@ SVG.parse = (
   }
 
   // Dig children
-  function dig(children: Element[]) {
+  function dig(children: Element[], parentPath: number[] = []) {
     return children.map((node, index) => {
       const { tagName } = node;
       const attrs = getAttributes(node);
@@ -123,9 +137,10 @@ SVG.parse = (
         }
       }
 
+      const myPath = [...parentPath, index];
       return (
-        <SVG {...attrs} tagName={tagName} key={index}>
-          {dig(Array.from(node.children))}
+        <SVG {...attrs} tagName={tagName} key={index} path={myPath}>
+          {dig(Array.from(node.children), myPath)}
         </SVG>
       );
     });
