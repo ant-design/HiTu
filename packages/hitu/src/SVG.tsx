@@ -17,6 +17,8 @@ function SVG({
 export interface ParseOption {
   debug?: boolean;
   name?: string;
+  width?: number;
+  height?: number;
 }
 
 let uuid = 0;
@@ -53,11 +55,19 @@ function getAttributes(dom: Element): any {
   return attrs;
 }
 
+function getMatchId(txt: string) {
+  const match = txt.match(/#([^)]+)/);
+  return match && match[1];
+}
+
 SVG.parse = (
   text: string,
-  { debug, name }: ParseOption = {},
+  { debug, name, width, height }: ParseOption = {},
 ): React.ReactElement => {
   const id = name || getUUID();
+  function getId(originId: string) {
+    return `${id}_${originId}`;
+  }
 
   // Create environments
   const fragment = document.createDocumentFragment();
@@ -69,6 +79,7 @@ SVG.parse = (
   const svg: SVGSVGElement = fragment.querySelector('svg')!;
 
   let defsEle: SVGDefsElement | null = null;
+  const defElements: React.ReactElement[] = [];
   const svgChildren = Array.from(svg.children).filter(node => {
     if (node.tagName === DEFINE) {
       defsEle = node as SVGDefsElement;
@@ -78,22 +89,63 @@ SVG.parse = (
   });
 
   // Convert svg defines
-  const defs = new Set();
   if (defsEle) {
-    Array.from(defsEle!.children).forEach(def => {
-      defs.add(def.id);
-      def.id = `${id}_${def.id}`;
+    Array.from(defsEle!.children).forEach((def, index) => {
+      const attrs = getAttributes(def);
+      attrs.id = getId(attrs.id);
+      defElements.push(<SVG key={index} {...attrs} tagName={def.tagName} />);
+    });
+  }
+
+  // Dig children
+  function dig(children: Element[]) {
+    return children.map((node, index) => {
+      const { tagName } = node;
+      const attrs = getAttributes(node);
+
+      if (tagName === 'mask') {
+        attrs.id = getId(node.id);
+      } else if (tagName === 'use') {
+        const matchId = getMatchId(attrs.xlinkHref);
+        if (matchId) {
+          attrs.xlinkHref = attrs.xlinkHref.replace(matchId, getId(matchId));
+        }
+      }
+
+      if (attrs.mask) {
+        const matchId = getMatchId(attrs.mask);
+        if (matchId) {
+          attrs.mask = attrs.mask.replace(matchId, getId(matchId));
+        }
+      }
+
+      return (
+        <SVG {...attrs} tagName={tagName} key={index}>
+          {dig(Array.from(node.children))}
+        </SVG>
+      );
     });
   }
 
   if (debug) {
-    console.warn(svgChildren, defs);
+    console.warn(svgChildren);
     container.className = 'hitu-svg-debug';
     document.body.appendChild(fragment);
     (window as any).HITU_SVG_DEBUG = svg;
   }
 
-  return <SVG {...getAttributes(svg)} tagName="svg" />;
+  return (
+    <SVG
+      width={width}
+      height={height}
+      viewBox={`0 0 ${width} ${height}`}
+      {...getAttributes(svg)}
+      tagName="svg"
+    >
+      <defs>{defElements}</defs>
+      {dig(svgChildren)}
+    </SVG>
+  );
 };
 
 export default SVG;
