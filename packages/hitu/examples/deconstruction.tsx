@@ -16,15 +16,25 @@ const Demo = () => {
         width={1000}
         height={500}
         style={{ width: 1000, height: 500, border: '1px solid orange' }}
-        // frames={60}
+        frames={60}
         shapes={[
           {
             type: 'svgText',
             source: PLANT_SVG,
-            scaleX: 500 / 1024,
-            scaleY: 500 / 1024,
-            originX: 0,
-            originY: 0,
+            frames: [
+              {
+                frame: 0,
+                x: 250,
+                y: 250,
+                scaleX: 500 / 1024,
+                scaleY: 500 / 1024,
+                rotate: 0,
+              },
+              {
+                frame: 60,
+                rotate: 360,
+              },
+            ],
             chips: [
               {
                 path: [0],

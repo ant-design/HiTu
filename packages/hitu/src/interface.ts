@@ -38,6 +38,7 @@ export interface Chip {
 export interface SvgTextShape extends BaseShape {
   type: typeof TYPE_SVG_TEXT;
   source: string;
+  /** @todo This function is not ready yet */
   chips?: Chip[];
 }
 
