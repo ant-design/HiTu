@@ -201,6 +201,7 @@ export default function useFramer(
             ptg,
             cubic,
           ),
+          theme: endInfo.theme || startInfo.theme,
         };
       }
     }

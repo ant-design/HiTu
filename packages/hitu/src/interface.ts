@@ -12,6 +12,7 @@ export interface Info {
   originX?: number;
   originY?: number;
   opacity?: number;
+  theme?: Record<string, string>;
 }
 
 export interface FrameInfo extends Info {

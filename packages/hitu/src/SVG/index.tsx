@@ -4,6 +4,24 @@ import SVGContext from './context';
 const DEFINE = 'defs';
 const OMIT_SVG_ELEMENTS = ['title', 'desc', 'defs'];
 
+function replaceColor(
+  props: React.SVGAttributes<any>,
+  theme: Record<string, string>,
+): React.SVGAttributes<any> {
+  if (!theme) {
+    return props;
+  }
+
+  let newProps = props;
+
+  if (props.fill) {
+    newProps = { ...newProps };
+    newProps.fill = theme[props.fill] || props.fill;
+  }
+
+  return newProps;
+}
+
 export interface SVGProps extends React.SVGAttributes<any> {
   tagName: string;
   path?: number[];
@@ -14,7 +32,7 @@ function SVG({
   path,
   ...rest
 }: SVGProps): React.ReactElement | null {
-  const { chipManger } = React.useContext(SVGContext);
+  const { chipManger, theme } = React.useContext(SVGContext);
   const chip = chipManger.getChip(path);
 
   // Only create prop object when chip exist to save perf
@@ -22,14 +40,14 @@ function SVG({
     const props = {
       // TODO: Handle chip operation
     };
-    return <Component {...rest} {...props} />;
+    return <Component {...replaceColor(rest, theme)} {...props} />;
   }
 
-  return <Component {...rest} />;
+  return <Component {...replaceColor(rest, theme)} />;
 }
 
 function toNumber(unit: string): number {
-  return Number(unit.replace(/[^\d\.]/g, '')) || 0;
+  return Number(unit.replace(/[^\d.]/g, '')) || 0;
 }
 
 export interface ParseOption {

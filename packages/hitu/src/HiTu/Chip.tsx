@@ -1,6 +1,4 @@
 import * as React from 'react';
-import toArray from 'rc-util/lib/Children/toArray';
-import warning from 'rc-util/lib/warning';
 import { Info } from '../interface';
 import SVGContext, { ChipManger } from '../SVG/context';
 
@@ -27,6 +25,7 @@ const Chip: React.FC<ChipProps> = ({
   scaleY,
   chips,
   children,
+  theme,
   ...rest
 }) => {
   const centerX = width * originX;
@@ -35,9 +34,8 @@ const Chip: React.FC<ChipProps> = ({
   const chipManger = new ChipManger(chips);
   chipManger.setFrame(0);
 
-
   return (
-    <SVGContext.Provider value={{ chipManger }}>
+    <SVGContext.Provider value={{ chipManger, theme }}>
       <g
         transform={`translate(${x - centerX}, ${y - centerY})`}
         opacity={opacity}

@@ -3,7 +3,9 @@ import { Chip } from '../interface';
 
 export class ChipManger {
   private chips?: Chip[];
+
   private chipsCache = new Map<string, Chip>();
+
   private frame: number = 0;
 
   constructor(chips?: Chip[]) {
@@ -24,6 +26,7 @@ export class ChipManger {
 
 export interface SVGContextProps {
   chipManger: ChipManger;
+  theme?: Record<string, string>;
 }
 
 const SVGContext = React.createContext<SVGContextProps>({
