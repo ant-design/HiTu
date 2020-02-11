@@ -5,10 +5,14 @@ export const EASE_IN: CUBIC_NUMBER = [0.42, 0.0, 1.0, 1.0];
 export const EASE_IN_OUT: CUBIC_NUMBER = [0.42, 0.0, 0.58, 1.0];
 export const EASE_OUT: CUBIC_NUMBER = [0.0, 0.0, 0.58, 1.0];
 
+/* eslint-disable no-underscore-dangle, no-mixed-operators */
 export default class CubicBezier {
   x1: number;
+
   y1: number;
+
   x2: number;
+
   y2: number;
 
   constructor(x1: number, y1: number, x2: number, y2: number) {
@@ -26,7 +30,7 @@ export default class CubicBezier {
     const _t = 1 - t;
     const c1 = 3 * t * _t ** 2;
     const c2 = 3 * _t * t ** 2;
-    const c3 = Math.pow(t, 3);
+    const c3 = t ** 3;
     const x = c1 * this.x1 + c2 * this.x2 + c3;
     const y = c1 * this.y1 + c2 * this.y2 + c3;
     return [x, y];

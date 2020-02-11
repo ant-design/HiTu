@@ -40,7 +40,8 @@
     "coverage": "father test --coverage"
   },
   "dependencies": {
-    "classnames": "^2.2.1"
+    "classnames": "^2.2.1",
+    "rc-util": "^4.19.0"
   },
   "devDependencies": {
     "@ant-design/hitu-assets": "^0.0.0-alpha.0",

@@ -1,13 +1,16 @@
 import * as React from 'react';
-import { Shape, TYPE_SHAPE, ShapeRender } from './interface';
-import useFramer, { FramerInfo } from './hooks/useFramer';
+import { warning } from 'rc-util/lib/warning';
+import { Shape, TYPE_SHAPE, ShapeRender, SvgTextShape } from '../interface';
+import SVG from '../SVG';
+import useFramer, { FramerInfo } from '../hooks/useFramer';
 import {
   EASE,
   CUBIC_NUMBER,
   EASE_IN,
   EASE_IN_OUT,
   EASE_OUT,
-} from './utils/cubicUtil';
+} from '../utils/cubicUtil';
+import Chip from './Chip';
 
 export interface HiTuRefObject {
   triggerMotion: (play?: boolean) => void;
@@ -49,16 +52,19 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
   },
   ref,
 ) => {
-  const { triggerMotion, getFrameInfo, getFramerInfo, setFrame } = useFramer(
-    frames,
-    {
-      defaultPlay,
-      defaultFrame,
-      onPlay,
-      onFrame,
-      loop,
-    },
-  );
+  const {
+    frame,
+    triggerMotion,
+    getFrameInfo,
+    getFramerInfo,
+    setFrame,
+  } = useFramer(frames, {
+    defaultPlay,
+    defaultFrame,
+    onPlay,
+    onFrame,
+    loop,
+  });
 
   React.useImperativeHandle(ref, () => ({
     triggerMotion,
@@ -79,54 +85,53 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
         />
       )}
       {shapes.map((shape, index) => {
-        const { source: Source, ...restShapeInfo } = shape;
-        const {
-          width: shapeWidth = 0,
-          height: shapeHeight = 0,
-        } = Source as any;
-        const frameInfo = getFrameInfo(restShapeInfo);
-        const {
-          x,
-          y,
-          originX,
-          originY,
-          scaleX,
-          scaleY,
-          rotate,
-          opacity,
-        } = frameInfo;
-        const centerX = shapeWidth * originX;
-        const centerY = shapeHeight * originY;
+        const { type, source: Source, ...restShapeInfo } = shape;
+        let shapeWidth: number = 0;
+        let shapeHeight: number = 0;
 
-        const shapeEle = (
-          // Position & Opacity
-          <g
-            key={index}
-            transform={`translate(${x - centerX}, ${y - centerY})`}
-            opacity={opacity}
-          >
-            {/* Center scale */}
-            <g
-              transform={`matrix(${scaleX}, 0, 0, ${scaleY}, ${centerX -
-                scaleX * centerX}, ${centerY - scaleY * centerY})`}
-            >
-              {/* Center Rotate */}
-              <g transform={`rotate(${rotate}, ${centerX}, ${centerY})`}>
-                {debug && (
-                  <rect
-                    x="0"
-                    y="0"
-                    width={shapeWidth}
-                    height={shapeHeight}
-                    stroke="red"
-                    fill="transparent"
-                  />
-                )}
+        const frameInfo = getFrameInfo(restShapeInfo);
+
+        let shapeEle: React.ReactElement | null = null;
+        switch (type) {
+          case 'shape': {
+            ({ width: shapeWidth, height: shapeHeight } = Source as any);
+            shapeEle = (
+              <Chip
+                frame={frame}
+                key={index}
+                {...frameInfo}
+                width={shapeWidth}
+                height={shapeHeight}
+              >
                 <Source />
-              </g>
-            </g>
-          </g>
-        );
+              </Chip>
+            );
+            break;
+          }
+
+          case 'svgText': {
+            // TODO: Performance improvement
+            const chipEle = SVG.parse(Source as string);
+            ({ width: shapeWidth, height: shapeHeight } = chipEle.props);
+
+            shapeEle = (
+              <Chip
+                frame={frame}
+                key={index}
+                {...frameInfo}
+                width={shapeWidth}
+                height={shapeHeight}
+                chips={(shape as SvgTextShape).chips}
+              >
+                {chipEle}
+              </Chip>
+            );
+            break;
+          }
+
+          default:
+            warning(false, `type: '${type}' is not support.`);
+        }
 
         if (shapeRender) {
           return shapeRender(shapeEle, shape, frameInfo);

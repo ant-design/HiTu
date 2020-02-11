@@ -8,7 +8,7 @@ import {
 import HiTu from '../src';
 
 const Demo = () => {
-  const [selectName, setSelectName] = React.useState<string>(null);
+  const [selectName, setSelectName] = React.useState<string>('');
 
   return (
     <div>
@@ -53,11 +53,11 @@ const Demo = () => {
               cursor: 'pointer',
             },
             onClick: () => {
-              setSelectName(shape.name);
+              setSelectName(shape.name!);
             },
           });
 
-          let selectionEle: React.ReactElement;
+          let selectionEle: React.ReactElement | null = null;
           if (selectName === shape.name) {
             const {
               width: shapeWidth = 0,
@@ -77,7 +77,10 @@ const Demo = () => {
 
             // Follow one is a simple wrapper example
             selectionEle = (
-              <g transform={`translate(${x - centerX}, ${y - centerY})`}>
+              <g
+                key="selection"
+                transform={`translate(${x - centerX}, ${y - centerY})`}
+              >
                 {/* Center scale */}
                 <g
                   transform={`matrix(${scaleX}, 0, 0, ${scaleY}, ${centerX -
@@ -100,10 +103,10 @@ const Demo = () => {
           }
 
           return (
-            <>
+            <React.Fragment key={element.key!}>
               {selectionEle}
               {clone}
-            </>
+            </React.Fragment>
           );
         }}
       />
