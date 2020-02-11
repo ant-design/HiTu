@@ -20,7 +20,7 @@ function SVG({
   // Only create prop object when chip exist to save perf
   if (chip) {
     const props = {
-      transform: 'translate(-100px, 100px)'
+      // TODO: Handle chip operation
     };
     return <Component {...rest} {...props} />;
   }
@@ -171,3 +171,8 @@ SVG.parse = (
 };
 
 export default SVG;
+
+export function getColors(text: string) {
+  const colors = text.match(/#[a-fA-F\d]{6}/g) || [];
+  return colors;
+}

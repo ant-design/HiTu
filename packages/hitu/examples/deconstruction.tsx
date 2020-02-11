@@ -1,18 +1,39 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import * as React from 'react';
 import PLANT_SVG from './svg/plant';
-import PEOPLE_SVG from './svg/people';
-import { Character_Designer_Walking_Working } from '@ant-design/hitu-assets';
-import HiTu from '../src';
-import SVG from '../src/SVG';
+import HiTu, { getColors } from '../src';
 
 const debug = false;
 
+const colors = getColors(PLANT_SVG);
+
 const Demo = () => {
+  const [customizeColors, setCustomizeColors] = React.useState<
+    Record<string, string>
+  >({});
+
+  console.log('Colors:', customizeColors);
+
   return (
     <div>
+      <button
+        type="button"
+        onClick={() => {
+          const newColor: Record<string, string> = {};
+          colors.forEach(color => {
+            newColor[color] = `#${Math.floor(Math.random() * 16777215).toString(
+              16,
+            )}`;
+          });
+
+          setCustomizeColors(newColor);
+        }}
+      >
+        Random Color
+      </button>
+      <br />
       <HiTu
-        debug
+        debug={debug}
         width={1000}
         height={500}
         style={{ width: 1000, height: 500, border: '1px solid orange' }}

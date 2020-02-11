@@ -10,6 +10,7 @@ import {
   EASE_OUT,
 } from '../utils/cubicUtil';
 import Chip from './Chip';
+import { warning } from 'rc-util/lib/warning';
 
 export interface HiTuRefObject {
   triggerMotion: (play?: boolean) => void;
@@ -92,7 +93,7 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
 
         let shapeEle: React.ReactElement | null = null;
         switch (type) {
-          case 'shape':
+          case 'shape': {
             ({ width: shapeWidth, height: shapeHeight } = Source as any);
             shapeEle = (
               <Chip
@@ -106,8 +107,9 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
               </Chip>
             );
             break;
+          }
 
-          case 'svgText':
+          case 'svgText': {
             // TODO: Performance improvement
             const chipEle = SVG.parse(Source as string);
             ({ width: shapeWidth, height: shapeHeight } = chipEle.props);
@@ -125,6 +127,10 @@ const InternalHiTu: React.RefForwardingComponent<HiTuRefObject, HiTuProps> = (
               </Chip>
             );
             break;
+          }
+
+          default:
+            warning(false, `type: '${type}' is not support.`);
         }
 
         if (shapeRender) {
