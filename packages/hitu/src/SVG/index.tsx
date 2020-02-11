@@ -165,7 +165,6 @@ SVG.parse = (
   }
 
   if (debug) {
-    console.warn(svgChildren);
     container.className = 'hitu-svg-debug';
     document.body.appendChild(fragment);
     (window as any).HITU_SVG_DEBUG = svg;

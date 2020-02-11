@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { warning } from 'rc-util/lib/warning';
 import { Shape, TYPE_SHAPE, ShapeRender, SvgTextShape } from '../interface';
 import SVG from '../SVG';
 import useFramer, { FramerInfo } from '../hooks/useFramer';
@@ -10,7 +11,6 @@ import {
   EASE_OUT,
 } from '../utils/cubicUtil';
 import Chip from './Chip';
-import { warning } from 'rc-util/lib/warning';
 
 export interface HiTuRefObject {
   triggerMotion: (play?: boolean) => void;
