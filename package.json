@@ -1,0 +1,18 @@
+{
+  "name": "hitu",
+  "description": "Hitu is a React component to generate motion-able React design artist.",
+  "scripts": {
+    "lint": "echo \"No linter yet.\"",
+    "coverage": "echo \"No tests yet.\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ant-design/HiTu.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ant-design/HiTu/issues"
+  },
+  "homepage": "https://github.com/ant-design/HiTu#readme"
+}
