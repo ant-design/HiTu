@@ -22,7 +22,7 @@ function replaceColor(
   return newProps;
 }
 
-export interface SVGProps extends React.SVGAttributes<any> {
+export interface SVGProps extends Omit<React.SVGAttributes<any>, 'path'> {
   tagName: string;
   path?: number[];
 }
